@@ -1,0 +1,108 @@
+{
+  "id": "sample5",
+  "name": "DailyVita Multivitamin Gummies (60s)",
+  "category": "Health Supplements / Nutraceuticals",
+  "netQuantity": "60 N (60 Gummies)",
+  "mrp": "₹699.00 (Incl. of all taxes)",
+  "mfgDate": "01/2025",
+  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuABAHXFTtyJOm_hjaJmMBT0xQAeGZm8QlejnjOsOAScas6amp_BEzveqcwBPlkbq6fVGK8jk0UFoB6e9fEbz6MuCFsJPD3LVUJDVGRLDoAReSWCkdYR3fgMZVbfZDhHVp6iflVVnOpyHrf0tn-R9NLpI5VgT4ayth7MPgGrm4wPcq9XW5_gJqk3HXJfo5duTRQAffJuKI_T5-Qwndw431fwf7RgsOAn7-Ymm3VvzNLg76i2WdS9ymV_mw",
+  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuABAHXFTtyJOm_hjaJmMBT0xQAeGZm8QlejnjOsOAScas6amp_BEzveqcwBPlkbq6fVGK8jk0UFoB6e9fEbz6MuCFsJPD3LVUJDVGRLDoAReSWCkdYR3fgMZVbfZDhHVp6iflVVnOpyHrf0tn-R9NLpI5VgT4ayth7MPgGrm4wPcq9XW5_gJqk3HXJfo5duTRQAffJuKI_T5-Qwndw431fwf7RgsOAn7-Ymm3VvzNLg76i2WdS9ymV_mw",
+  "summary": "Flagged: Missing Mandatory Consumer Care Helpline Telephone",
+  "badgeText": "Missing Helpline",
+  "defaultStatus": "VIOLATION",
+  "boundingBoxes": [
+    {
+      "id": "box_5_1",
+      "xPercent": 18,
+      "yPercent": 62,
+      "widthPercent": 64,
+      "heightPercent": 18,
+      "label": "MISSING CARE TEL NO.",
+      "boxColor": "red",
+      "detail": "Website listed without mandatory consumer telephone helpline",
+      "ruleCode": "PCR 2011 Clause 6(1)(h)"
+    },
+    {
+      "id": "box_5_2",
+      "xPercent": 18,
+      "yPercent": 32,
+      "widthPercent": 36,
+      "heightPercent": 14,
+      "label": "QUANTITY: 60 N",
+      "boxColor": "green",
+      "detail": "Count symbol 'N' compliant",
+      "ruleCode": "PCR 2011 Clause 6(1)(b)"
+    },
+    {
+      "id": "box_5_3",
+      "xPercent": 18,
+      "yPercent": 48,
+      "widthPercent": 46,
+      "heightPercent": 14,
+      "label": "MRP: ₹699.00",
+      "boxColor": "green",
+      "detail": "Inclusive of all taxes",
+      "ruleCode": "PCR 2011 Clause 6(1)(c)"
+    },
+    {
+      "id": "box_5_4",
+      "xPercent": 56,
+      "yPercent": 32,
+      "widthPercent": 38,
+      "heightPercent": 16,
+      "label": "MFG 01/2025 • EXP 01/2027",
+      "boxColor": "green",
+      "detail": "Indelible laser batch print",
+      "ruleCode": "PCR 2011 Clause 6(1)(d)"
+    }
+  ],
+  "violations": [
+    {
+      "id": "v5_1",
+      "code": "CONSUMER CARE HELPLINE TELEPHONE",
+      "severity": "critical",
+      "badge": "critical",
+      "desc": "Consumer grievance panel contains only a URL (www.dailyvita.in/help); mandatory telephone/toll-free helpline number is missing.",
+      "rule": "PCR 2011 Clause 6(1)(h): Name, address, telephone number and e-mail address of the person or office who may be contacted in case of consumer complaints."
+    }
+  ],
+  "compliant": [
+    {
+      "id": "c5_1",
+      "label": "Net Quantity by Unit Count",
+      "status": "Compliant",
+      "desc": "Declared using standard count symbol '60 N' (60 Gummies).",
+      "value": "60 N (Count)"
+    },
+    {
+      "id": "c5_2",
+      "label": "Maximum Retail Price (MRP)",
+      "status": "Compliant",
+      "desc": "MRP ₹699.00 inclusive of taxes clearly marked.",
+      "value": "₹699.00 (Incl. of all taxes)"
+    },
+    {
+      "id": "c5_3",
+      "label": "Manufacturing & Expiry Dates",
+      "status": "Compliant",
+      "desc": "High contrast print of MFD: 01/2025 and EXP: 01/2027.",
+      "value": "MFD: 01/2025 • EXP: 01/2027"
+    },
+    {
+      "id": "c5_4",
+      "label": "Nutritional Matrix & Disclaimer",
+      "status": "Compliant",
+      "desc": "Standard RDA vitamins breakdown and 'Health Supplement' disclaimer present.",
+      "value": "Compliant (Full Panel)"
+    }
+  ],
+  "changeLog": [
+    {
+      "id": "cl5_1",
+      "targetViolation": "Grievance Contact Coordinates",
+      "actionRequired": "Add an active customer helpline telephone number (e.g., 'Helpline: +91-80-XXXX-XXXX' or 'Toll-Free: 1800-XXX-XXXX') on the side label.",
+      "statutoryReference": "PCR 2011 Clause 6(1)(h)"
+    }
+  ]
+}
+

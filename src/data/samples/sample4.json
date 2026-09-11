@@ -1,0 +1,115 @@
+{
+  "id": "sample4",
+  "name": "GoldenHarvest Basmati Rice (1kg)",
+  "category": "Staples / Agricultural Grains",
+  "netQuantity": "1 kg (1000g)",
+  "mrp": "₹180.00 (Incl. of all taxes)",
+  "mfgDate": "PKD: 10/2024",
+  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuARr0P-OFfIKUWIYuSldIsoMgXEQnkwS2_Hc7HDmBluRvKjXncJPGXw8HRLu1PNh3C_3NTo_bYdj_kvRL_T5alcoJlbyJPcuYyP_AZ3zM-LPWXUIk3kgz036g5lqm7WFEd3Ri4_kzKAs-nLd0ZcZEjuPIGpX3rZWdgJrIsA_9H-Gvzayx3UhfptPY7yS3YnjrAU0I8HGEDBgeWC7E5aFKfFJsBMnKyZKYcpOD1aWNnoaUiqJ6uTK6eaIw",
+  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuARr0P-OFfIKUWIYuSldIsoMgXEQnkwS2_Hc7HDmBluRvKjXncJPGXw8HRLu1PNh3C_3NTo_bYdj_kvRL_T5alcoJlbyJPcuYyP_AZ3zM-LPWXUIk3kgz036g5lqm7WFEd3Ri4_kzKAs-nLd0ZcZEjuPIGpX3rZWdgJrIsA_9H-Gvzayx3UhfptPY7yS3YnjrAU0I8HGEDBgeWC7E5aFKfFJsBMnKyZKYcpOD1aWNnoaUiqJ6uTK6eaIw",
+  "summary": "Flagged: Table I Numeral Height Defect on Principal Display Panel",
+  "badgeText": "Font Height Defect",
+  "defaultStatus": "VIOLATION",
+  "boundingBoxes": [
+    {
+      "id": "box_4_1",
+      "xPercent": 28,
+      "yPercent": 38,
+      "widthPercent": 46,
+      "heightPercent": 16,
+      "label": "FONT HEIGHT DEFECT (<4.0mm)",
+      "boxColor": "red",
+      "detail": "Net weight numeral height measured at 2.8mm (statutory minimum 4.0mm)",
+      "ruleCode": "PCR 2011 Table I & Rule 7"
+    },
+    {
+      "id": "box_4_2",
+      "xPercent": 10,
+      "yPercent": 76,
+      "widthPercent": 48,
+      "heightPercent": 14,
+      "label": "FSSAI LIC. 11221004000329",
+      "boxColor": "green",
+      "detail": "Valid registration & green veg logo",
+      "ruleCode": "PCR 2011 Clause 6(1)"
+    },
+    {
+      "id": "box_4_3",
+      "xPercent": 46,
+      "yPercent": 60,
+      "widthPercent": 44,
+      "heightPercent": 14,
+      "label": "USP: ₹0.18 / g",
+      "boxColor": "green",
+      "detail": "Unit sale price correctly calculated",
+      "ruleCode": "PCR 2011 Rule 6(11)"
+    },
+    {
+      "id": "box_4_4",
+      "xPercent": 72,
+      "yPercent": 18,
+      "widthPercent": 18,
+      "heightPercent": 18,
+      "label": "VEG SYMBOL COMPLIANT",
+      "boxColor": "green",
+      "detail": "Standard 8mm green icon",
+      "ruleCode": "FSSAI Reg. 2020"
+    }
+  ],
+  "violations": [
+    {
+      "id": "v4_1",
+      "code": "FONT HEIGHT NON-COMPLIANCE",
+      "severity": "major",
+      "badge": "major",
+      "desc": "Net weight numeral print height is measured at 2.8mm. For packages of 1 kg net mass, Table I mandates a minimum numeral height of 4.0mm.",
+      "rule": "PCR 2011 Table I & Rule 7: Minimum height of numeral in declaration of net quantity."
+    }
+  ],
+  "compliant": [
+    {
+      "id": "c4_1",
+      "label": "FSSAI Certification & Logo",
+      "status": "Compliant",
+      "desc": "Lic. No. 11221004000329 valid and prominent.",
+      "value": "Lic. 11221004000329"
+    },
+    {
+      "id": "c4_2",
+      "label": "Vegetarian Emblem",
+      "status": "Compliant",
+      "desc": "Standard green dot inside square symbol prominently visible.",
+      "value": "Compliant (Green Dot)"
+    },
+    {
+      "id": "c4_3",
+      "label": "Unit Sale Price (USP)",
+      "status": "Compliant",
+      "desc": "USP declared as ₹0.18 per gram (₹180 / 1000g).",
+      "value": "₹0.18 per g"
+    },
+    {
+      "id": "c4_4",
+      "label": "Country of Origin",
+      "status": "Compliant",
+      "desc": "'Product of India' prominently declared on front panel.",
+      "value": "Country of Origin: India"
+    },
+    {
+      "id": "c4_5",
+      "label": "Crop Year & Lot Code",
+      "status": "Compliant",
+      "desc": "Lot GH-2410 / Aged Basmati Crop 2024.",
+      "value": "Batch: GH-2410"
+    }
+  ],
+  "changeLog": [
+    {
+      "id": "cl4_1",
+      "targetViolation": "Net Weight Numeral Typography",
+      "actionRequired": "Scale up the net quantity numeral font size from 2.8mm to at least 4.0mm on the primary packaging film cylinders.",
+      "statutoryReference": "PCR 2011 Rule 7 read with Table I (Column 3)"
+    }
+  ]
+}
+

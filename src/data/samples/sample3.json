@@ -1,0 +1,122 @@
+{
+  "id": "sample3",
+  "name": "NeemAyur Herbal Bath Soap (125g)",
+  "category": "Personal Care / Toilet Soap",
+  "netQuantity": "125 g",
+  "mrp": "₹55.00 (Incl. of all taxes)",
+  "mfgDate": "Smudged / 09-2024",
+  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuBaYIRicUV4TIUgTSrb_DmuyG8hhDkAChZiRXu1dLZixMVbf-zCUwwkq0gBieBfLVvAg8Espo0WDmMxbHXaJcuGyEtfCxtpAi4J0E3-LZ9RMxQqykAOn4TREg22tjkrNa6TE9fmUcbOXqCc9MWP6Mlc6eQ4KxjDquJsqIh-wtQ8rB49gzEl_HkDPN_MmQd9nvgtly9rDtLKG9GwsBOhZYT1PFK20JONxn3OwXVEgtqngp1kvj6UFM90OA",
+  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBaYIRicUV4TIUgTSrb_DmuyG8hhDkAChZiRXu1dLZixMVbf-zCUwwkq0gBieBfLVvAg8Espo0WDmMxbHXaJcuGyEtfCxtpAi4J0E3-LZ9RMxQqykAOn4TREg22tjkrNa6TE9fmUcbOXqCc9MWP6Mlc6eQ4KxjDquJsqIh-wtQ8rB49gzEl_HkDPN_MmQd9nvgtly9rDtLKG9GwsBOhZYT1PFK20JONxn3OwXVEgtqngp1kvj6UFM90OA",
+  "summary": "Flagged: Missing Unit Sale Price (USP) & Legibility Issue",
+  "badgeText": "USP & Date Defect",
+  "defaultStatus": "VIOLATION",
+  "boundingBoxes": [
+    {
+      "id": "box_3_1",
+      "xPercent": 18,
+      "yPercent": 42,
+      "widthPercent": 60,
+      "heightPercent": 14,
+      "label": "MISSING USP (RULE 6(11))",
+      "boxColor": "red",
+      "detail": "Packages > 50g must declare unit sale price per gram",
+      "ruleCode": "PCR 2011 Rule 6(11)"
+    },
+    {
+      "id": "box_3_2",
+      "xPercent": 52,
+      "yPercent": 66,
+      "widthPercent": 42,
+      "heightPercent": 16,
+      "label": "SMUDGED MFG DATE",
+      "boxColor": "amber",
+      "detail": "Embossed date fails Rule 9 minimum contrast standard",
+      "ruleCode": "PCR 2011 Clause 6(1)(d)"
+    },
+    {
+      "id": "box_3_3",
+      "xPercent": 12,
+      "yPercent": 64,
+      "widthPercent": 36,
+      "heightPercent": 14,
+      "label": "NET WEIGHT: 125g",
+      "boxColor": "green",
+      "detail": "Standard SI metric weight unit",
+      "ruleCode": "PCR 2011 Clause 6(1)(b)"
+    },
+    {
+      "id": "box_3_4",
+      "xPercent": 12,
+      "yPercent": 24,
+      "widthPercent": 38,
+      "heightPercent": 14,
+      "label": "MRP: ₹55.00",
+      "boxColor": "green",
+      "detail": "Tax inclusive declaration present",
+      "ruleCode": "PCR 2011 Clause 6(1)(c)"
+    }
+  ],
+  "violations": [
+    {
+      "id": "v3_1",
+      "code": "UNIT SALE PRICE (USP)",
+      "severity": "critical",
+      "badge": "critical",
+      "desc": "Soap carton lacks mandatory Unit Sale Price declaration (e.g. ₹0.44 per g) required for items over 50g.",
+      "rule": "PCR 2011 Rule 6(11): Mandatory declaration of unit sale price per gram/ml on packages where net quantity is not 1 integer kg/litre."
+    },
+    {
+      "id": "v3_2",
+      "code": "MONTH & YEAR OF MANUFACTURE",
+      "severity": "major",
+      "badge": "major",
+      "desc": "Embossed date on side flap is smudged and illegible under standard ambient inspection lighting.",
+      "rule": "PCR 2011 Clause 6(1)(d) read with Rule 9: Month and year of manufacture must be prominent, indelible and clearly legible."
+    }
+  ],
+  "compliant": [
+    {
+      "id": "c3_1",
+      "label": "Net Weight",
+      "status": "Compliant",
+      "desc": "Net weight (125 g) declared on Principal Display Panel.",
+      "value": "125 g"
+    },
+    {
+      "id": "c3_2",
+      "label": "Maximum Retail Price (MRP)",
+      "status": "Compliant",
+      "desc": "MRP clearly marked with tax disclaimer.",
+      "value": "₹55.00 (Incl. of all taxes)"
+    },
+    {
+      "id": "c3_3",
+      "label": "Manufacturer & Packer Details",
+      "status": "Compliant",
+      "desc": "NeemAyur Naturals Ltd., Registered Industrial Complex.",
+      "value": "Registered Office & Factory listed"
+    },
+    {
+      "id": "c3_4",
+      "label": "Grade & TFM Specification",
+      "status": "Compliant",
+      "desc": "Grade 1 Toilet Soap with Total Fatty Matter (TFM) 76% declared.",
+      "value": "Grade 1 • 76% TFM"
+    }
+  ],
+  "changeLog": [
+    {
+      "id": "cl3_1",
+      "targetViolation": "Unit Sale Price (USP)",
+      "actionRequired": "Print 'USP: ₹0.44 per g' adjacent to the MRP block with equal prominence and font sizing.",
+      "statutoryReference": "PCR 2011 Rule 6(11)"
+    },
+    {
+      "id": "cl3_2",
+      "targetViolation": "Manufacturing Date Stamping",
+      "actionRequired": "Re-calibrate flap embossing dye pressure to ensure month & year (e.g. 'MFD 09/2024') is crisp and permanent.",
+      "statutoryReference": "PCR 2011 Clause 6(1)(d) & Rule 9"
+    }
+  ]
+}
+

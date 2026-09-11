@@ -1,0 +1,129 @@
+{
+  "id": "sample6",
+  "name": "Rajkamal's Diet Navratan Mix (200g)",
+  "category": "Packaged Snack / Namkeen",
+  "netQuantity": "200 g",
+  "mrp": "Mumbai: ₹70.00 | O/S: ₹75.00",
+  "mfgDate": "Pkdt: 05-09-16",
+  "imagePath": "/assets/labels/label1_rajkamal.jpg",
+  "thumbnailUrl": "/assets/labels/label1_rajkamal.jpg",
+  "summary": "Flagged: Dual MRP Under Rule 18(2) & Missing USP Under Rule 6(11)",
+  "badgeText": "Dual MRP Defect",
+  "defaultStatus": "VIOLATION",
+  "boundingBoxes": [
+    {
+      "id": "box_6_1",
+      "xPercent": 36,
+      "yPercent": 52,
+      "widthPercent": 52,
+      "heightPercent": 14,
+      "label": "DUAL MRP: ₹70 vs ₹75",
+      "boxColor": "red",
+      "detail": "Discriminatory pricing for Mumbai vs Outside Mumbai",
+      "ruleCode": "PCR 2011 Rule 18(2)"
+    },
+    {
+      "id": "box_6_2",
+      "xPercent": 36,
+      "yPercent": 40,
+      "widthPercent": 50,
+      "heightPercent": 10,
+      "label": "MISSING USP (RULE 6(11))",
+      "boxColor": "red",
+      "detail": "Mandatory unit price per gram absent on 200g pack",
+      "ruleCode": "PCR 2011 Rule 6(11)"
+    },
+    {
+      "id": "box_6_3",
+      "xPercent": 36,
+      "yPercent": 64,
+      "widthPercent": 42,
+      "heightPercent": 10,
+      "label": "NET WT: 200 g",
+      "boxColor": "green",
+      "detail": "Standard SI metric weight unit",
+      "ruleCode": "PCR 2011 Clause 6(1)(b)"
+    },
+    {
+      "id": "box_6_4",
+      "xPercent": 8,
+      "yPercent": 86,
+      "widthPercent": 78,
+      "heightPercent": 10,
+      "label": "CARE: 022-25782103",
+      "boxColor": "green",
+      "detail": "Telephone & email contact present",
+      "ruleCode": "PCR 2011 Clause 6(1)(h)"
+    }
+  ],
+  "violations": [
+    {
+      "id": "v6_1",
+      "code": "PROHIBITION OF DUAL MRP",
+      "severity": "critical",
+      "badge": "critical",
+      "desc": "Package declares dual Maximum Retail Prices ('MRP IN MUMBAI Rs. 70/-' and 'MRP O/S MUMBAI Rs. 75/-'), directly violating Rule 18(2) prohibiting discriminatory price declarations across territories.",
+      "rule": "PCR 2011 Rule 18(2): No manufacturer or packer shall declare different MRP on identical pre-packaged commodities for different locations/states."
+    },
+    {
+      "id": "v6_2",
+      "code": "UNIT SALE PRICE (USP)",
+      "severity": "critical",
+      "badge": "critical",
+      "desc": "Pre-packaged commodity of 200g net weight lacks the mandatory Unit Sale Price declaration (e.g. ₹0.35 per g).",
+      "rule": "PCR 2011 Rule 6(11): Mandatory declaration of unit sale price on packages exceeding 50g where quantity is not 1 integer kg."
+    },
+    {
+      "id": "v6_3",
+      "code": "AMBIGUOUS DATE MARKING",
+      "severity": "major",
+      "badge": "major",
+      "desc": "Packed date printed as '05-09-16' in ambiguous hyphenated format without clear month notation.",
+      "rule": "PCR 2011 Clause 6(1)(d): Month and year in which commodity is manufactured or pre-packed shall be stated clearly."
+    }
+  ],
+  "compliant": [
+    {
+      "id": "c6_1",
+      "label": "Net Quantity",
+      "status": "Compliant",
+      "desc": "Expressed in standard SI metric units ('Net Wt : 200 g').",
+      "value": "200 g"
+    },
+    {
+      "id": "c6_2",
+      "label": "Consumer Care Redressal",
+      "status": "Compliant",
+      "desc": "Landline telephone (+91-22-25782103) and email address provided.",
+      "value": "022-25782103 • rajkamalnamkeens@gmail.com"
+    },
+    {
+      "id": "c6_3",
+      "label": "Packer & Premise Address",
+      "status": "Compliant",
+      "desc": "Full industrial estate address and Mumbai PIN code declared.",
+      "value": "Vikhroli (W), Mumbai - 400083"
+    }
+  ],
+  "changeLog": [
+    {
+      "id": "cl6_1",
+      "targetViolation": "Dual Pricing Structure",
+      "actionRequired": "Re-print packaging with a single, uniform Maximum Retail Price (e.g., 'MRP ₹70.00 incl. of all taxes') applicable nationwide.",
+      "statutoryReference": "PCR 2011 Rule 18(2) & Section 36(1) LM Act 2009"
+    },
+    {
+      "id": "cl6_2",
+      "targetViolation": "Unit Sale Price Declaration",
+      "actionRequired": "Add 'USP: ₹0.35 per g' declaration in close proximity to the MRP with compliant font size.",
+      "statutoryReference": "PCR 2011 Rule 6(11)"
+    },
+    {
+      "id": "cl6_3",
+      "targetViolation": "Date Format Stamping",
+      "actionRequired": "Standardize date stamping format to 'Pkd: Sep 2024' or '09/2024' to prevent consumer ambiguity.",
+      "statutoryReference": "PCR 2011 Clause 6(1)(d)"
+    }
+  ]
+}
+
