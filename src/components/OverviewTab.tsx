@@ -3,9 +3,10 @@ import {
   ScanText,
   Users,
   Lightbulb,
-  FileCheck2,
-  CalendarX,
+  Camera,
+  Cpu,
   Scale,
+  FileText,
   Play,
   Pause
 } from 'lucide-react';
@@ -99,35 +100,31 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           </h2>
         </div>
 
-        <p className="text-sm text-[#434655] leading-relaxed">
-          We make packaging inspections effortless. Instead of manually cross-checking fine print and complex regulations, simply capture an image and let the intelligence do the reading.
-        </p>
-
-        <div className="space-y-3">
+        <div className="space-y-3 pt-1">
           <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#f2f3ff] border border-[#eaedff]">
             <div className="w-9 h-9 rounded-lg bg-[#e2e7ff] text-[#004ac6] flex items-center justify-center shrink-0 mt-0.5">
-              <FileCheck2 className="w-4 h-4" />
+              <Camera className="w-4 h-4" />
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                Analyzes packaging labels
+                1. User Captures Image
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                Reads typography, fine print, and back-of-pack details with clarity.
+                User takes a photo of the product label.
               </span>
             </div>
           </div>
 
           <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#f2f3ff] border border-[#eaedff]">
             <div className="w-9 h-9 rounded-lg bg-[#e2e7ff] text-[#004ac6] flex items-center justify-center shrink-0 mt-0.5">
-              <CalendarX className="w-4 h-4" />
+              <Cpu className="w-4 h-4" />
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                Highlights missing or faded dates
+                2. AI Reads Label
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                Flags manufacturing dates, expiry timelines, and batch codes instantly.
+                AI analyzes the image and extracts key information.
               </span>
             </div>
           </div>
@@ -138,10 +135,24 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                Checks mandatory declarations
+                3. Data Validation
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                Ensures required consumer care details, unit pricing, and addresses are present.
+                The system checks the extracted data against legal rules.
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#f2f3ff] border border-[#eaedff]">
+            <div className="w-9 h-9 rounded-lg bg-[#e2e7ff] text-[#004ac6] flex items-center justify-center shrink-0 mt-0.5">
+              <FileText className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="font-semibold text-sm text-[#131b2e] block">
+                4. Report Generation
+              </span>
+              <span className="text-xs text-[#434655] leading-relaxed">
+                A comprehensive inspection PDF report is created.
               </span>
             </div>
           </div>
