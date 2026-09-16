@@ -12,18 +12,16 @@ export const PrototypeBadge: React.FC<PrototypeBadgeProps> = ({ variant = 'banne
 
   if (variant === 'pill') {
     return (
-      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#e6eeff] text-[#00153b] font-mono text-[11px] font-semibold border border-[#c4c6d0]/40 shadow-xs">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FF9933] animate-ping" />
-        <span>Prototype — Sample Data Only</span>
+      <div className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#e6eeff] text-[#00153b] font-mono text-[11px] font-semibold border border-[#c4c6d0]/40 shadow-xs">
+        <span>Prototype</span>
       </div>
     );
   }
 
   if (variant === 'compact') {
     return (
-      <div className="flex items-center gap-1.5 text-xs text-[#0f2a59] font-medium bg-[#eff4ff] px-2 py-1 rounded border border-[#0f2a59]/15">
-        <span className="w-2 h-2 rounded-full bg-[#FF9933] animate-pulse" />
-        <span>Prototype — Sample Data Only</span>
+      <div className="flex items-center text-xs text-[#0f2a59] font-medium bg-[#eff4ff] px-2 py-1 rounded border border-[#0f2a59]/15">
+        <span>Prototype</span>
       </div>
     );
   }
@@ -38,7 +36,7 @@ export const PrototypeBadge: React.FC<PrototypeBadgeProps> = ({ variant = 'banne
               Legal Metrology Sandbox
             </span>
             <span className="px-2 py-0.5 rounded-full bg-[#0f2a59] text-white text-[10px] font-mono font-bold">
-              Prototype — Sample Data Only
+              Prototype
             </span>
           </div>
           <p className="text-xs text-[#44474f] mt-0.5 leading-relaxed">

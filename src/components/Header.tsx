@@ -28,9 +28,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenProfile }) => {
 
         {/* Right Badge & Profile */}
         <div className="flex items-center gap-2.5">
-          <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#e2e7ff] text-[#004ac6] text-[11px] font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#007d55] animate-ping" />
-            <span>Prototype — Sample Data Only</span>
+          <div className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#e2e7ff] text-[#004ac6] text-[11px] font-semibold">
+            <span>Prototype</span>
           </div>
 
           <button
