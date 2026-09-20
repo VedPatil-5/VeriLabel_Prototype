@@ -1,47 +1,11 @@
 import React from 'react';
-import { ScanText, User } from 'lucide-react';
+import { ArrowLeft, User } from 'lucide-react';
+import { GlobalControls } from './GlobalControls';
+import { useI18n } from '../i18n';
 
-interface HeaderProps {
-  onOpenProfile?: () => void;
-}
+interface HeaderProps { onOpenProfile?: () => void; onBack?: () => void; }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenProfile }) => {
-  return (
-    <header className="fixed top-0 inset-x-0 z-40 bg-[#faf8ff]/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe border-b border-[#c3c6d7]/30">
-      <div className="h-16 px-4 max-w-[1280px] mx-auto flex items-center justify-between">
-        {/* Brand */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-[#004ac6] flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-            <ScanText className="w-5 h-5 text-white" />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1.5">
-              <span className="font-display text-lg tracking-tight text-[#131b2e] leading-none font-bold">
-                VeriLabel
-              </span>
-            </div>
-            <span className="text-[11px] text-[#434655] leading-none mt-0.5 font-sans tracking-wide">
-              Every Label, Verified.
-            </span>
-          </div>
-        </div>
-
-        {/* Right Badge & Profile */}
-        <div className="flex items-center gap-2.5">
-          <div className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full bg-[#e2e7ff] text-[#004ac6] text-[11px] font-semibold">
-            <span>Prototype</span>
-          </div>
-
-          <button
-            type="button"
-            onClick={onOpenProfile}
-            className="w-8 h-8 rounded-full bg-[#004ac6] text-white flex items-center justify-center hover:bg-[#003ea8] transition-colors shadow-xs cursor-pointer"
-            title="Team & Profile"
-          >
-            <User className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+export const Header: React.FC<HeaderProps> = ({ onOpenProfile, onBack }) => {
+  const { t } = useI18n();
+  return <header className="fixed top-0 inset-x-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur-xl pt-safe"><div className="h-16 px-4 max-w-[1280px] mx-auto flex items-center justify-between gap-3"><div className="flex min-w-0 items-center gap-2.5"><button type="button" onClick={onBack} className="hidden rounded-lg p-1.5 text-[var(--muted)] hover:text-[var(--primary)] sm:inline-flex" aria-label={t('backHome')}><ArrowLeft className="h-4 w-4" /></button><img src="/assets/verilabel-logo.PNG" alt={t('brand')} className="h-9 w-9 shrink-0 rounded-xl bg-[#06245f] object-contain" /><div className="flex min-w-0 flex-col"><span className="truncate font-display text-lg font-bold leading-none tracking-tight">{t('brand')}</span><span className="mt-0.5 text-[11px] leading-none tracking-wide text-[var(--muted)]">{t('motto')}</span></div></div><div className="flex items-center gap-2"><GlobalControls compact /><div className="hidden rounded-full bg-[var(--primary-soft)] px-2.5 py-1 text-[11px] font-semibold text-[var(--primary)] sm:inline-flex">{t('prototype')}</div><button type="button" onClick={onOpenProfile} aria-label={t('meetTeam')} className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--primary)] text-white shadow-sm"><User className="h-4 w-4" /></button></div></div></header>;
 };

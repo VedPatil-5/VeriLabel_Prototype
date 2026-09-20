@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface ActionSheetProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ export const ActionSheet: React.FC<ActionSheetProps> = ({
   onClose,
   onChooseLibrary
 }) => {
+  const { t } = useI18n();
   if (!isOpen) return null;
 
   return (
@@ -31,7 +33,7 @@ export const ActionSheet: React.FC<ActionSheetProps> = ({
             onClick={onChooseLibrary}
             className="w-full py-4 px-5 flex items-center justify-between text-[#007AFF] hover:bg-slate-50 active:bg-slate-100 transition-colors cursor-pointer"
           >
-            <span className="text-[19px] font-normal tracking-tight">Choose from Library</span>
+            <span className="text-[19px] font-normal tracking-tight">{t('chooseLibrary')}</span>
             <ImageIcon className="w-5 h-5 text-[#007AFF]" />
           </button>
         </div>
@@ -42,7 +44,7 @@ export const ActionSheet: React.FC<ActionSheetProps> = ({
           onClick={onClose}
           className="w-full py-3.5 bg-white rounded-[14px] text-[#007AFF] text-[19px] font-semibold tracking-tight shadow-lg hover:bg-slate-50 active:bg-slate-100 transition-colors flex items-center justify-center cursor-pointer"
         >
-          Cancel
+          {t('cancel')}
         </button>
       </div>
     </div>

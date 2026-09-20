@@ -14,8 +14,10 @@ import {
   RotateCcw
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { useI18n } from '../i18n';
 
 export const ScannerTab: React.FC = () => {
+  const { t, language } = useI18n();
   const [activeSample, setActiveSample] = useState<SampleDataset | null>(null);
   const [hasProcessed, setHasProcessed] = useState<boolean>(false);
   const [isActionSheetOpen, setIsActionSheetOpen] = useState<boolean>(false);
@@ -25,7 +27,7 @@ export const ScannerTab: React.FC = () => {
   const [isScanning, setIsScanning] = useState<boolean>(false);
   const [stageIndex, setStageIndex] = useState<number>(0);
   const [stageProgress, setStageProgress] = useState<number>(0);
-  const [stageLabel, setStageLabel] = useState<string>('Ready to scan');
+  const [stageLabel, setStageLabel] = useState<string>(t('ready'));
   const [showBoundingBoxes, setShowBoundingBoxes] = useState<boolean>(false);
 
   // PDF Generation State
@@ -88,7 +90,7 @@ export const ScannerTab: React.FC = () => {
           spread: 60,
           origin: { y: 0.7 }
         });
-        showToast('100% Compliant • All PCR 2011 declarations verified');
+        showToast(`${t('compliant')} • PCR 2011 declarations verified`);
       } else {
         showToast(`Loaded ${sampleToLoad.name}`);
       }
@@ -107,8 +109,8 @@ export const ScannerTab: React.FC = () => {
     if (!activeSample) return;
     try {
       setIsGeneratingPdf(true);
-      await generateInspectionPdf(activeSample);
-      showToast('Inspection report PDF downloaded');
+      await generateInspectionPdf(activeSample, { language });
+      showToast(t('pdfDownloaded'));
     } catch (err) {
       console.error('PDF error:', err);
       showToast('Error generating PDF report');
@@ -122,10 +124,10 @@ export const ScannerTab: React.FC = () => {
       {/* Top Intro Header */}
       <div className="flex flex-col gap-1">
         <h1 className="font-display text-2xl sm:text-3xl text-slate-900 font-bold tracking-tight">
-          Product Label Scanner
+          {t('scannerTitle')}
         </h1>
         <p className="text-xs sm:text-sm text-slate-600">
-          Select a packaged commodity label image from the library to verify legal declarations.
+          {t('scannerSub')}
         </p>
       </div>
 
@@ -202,10 +204,10 @@ export const ScannerTab: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-white font-semibold text-sm sm:text-base">
-                  No Label Image Selected
+                  {t('noImage')}
                 </span>
                 <span className="text-slate-400 text-xs max-w-xs">
-                  Choose a product label from the library to begin verification.
+                  {t('chooseToBegin')}
                 </span>
               </div>
             </div>
@@ -222,7 +224,7 @@ export const ScannerTab: React.FC = () => {
           className="w-full py-3.5 px-6 rounded-xl bg-[#004ac6] hover:bg-[#003ea8] active:bg-[#00174b] text-white font-semibold text-sm flex items-center justify-center gap-2.5 shadow-md transition-all cursor-pointer disabled:opacity-50"
         >
           <ImageIcon className="w-5 h-5" />
-          <span>Choose from Library</span>
+          <span>{t('chooseLibrary')}</span>
         </button>
       </div>
 
@@ -252,7 +254,7 @@ export const ScannerTab: React.FC = () => {
               className="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs"
             >
               <RotateCcw className="w-4 h-4 text-[#004ac6]" />
-              <span>Choose Another Image</span>
+              <span>{t('chooseAnother')}</span>
             </button>
           </div>
         </>

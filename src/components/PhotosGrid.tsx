@@ -1,5 +1,6 @@
 import React from 'react';
 import { SampleDataset } from '../types';
+import { useI18n } from '../i18n';
 
 interface PhotosGridProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ export const PhotosGrid: React.FC<PhotosGridProps> = ({
   onSelectSample,
   onCancel
 }) => {
+  const { t } = useI18n();
   if (!isOpen) return null;
 
   // We display exactly the 5 plain square images edge-to-edge as specified
@@ -29,11 +31,11 @@ export const PhotosGrid: React.FC<PhotosGridProps> = ({
             onClick={onCancel}
             className="text-[#007AFF] text-[17px] font-normal active:opacity-60 transition-opacity min-h-[44px] flex items-center cursor-pointer"
           >
-            Cancel
+            {t('cancel')}
           </button>
           <div className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-none">
             <h1 className="text-[17px] font-semibold text-slate-900 tracking-tight">
-              Photos
+              {t('photos')}
             </h1>
           </div>
           <div className="w-12" /> {/* Balancing spacer */}

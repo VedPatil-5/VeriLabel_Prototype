@@ -1,5 +1,6 @@
 import React from 'react';
 import { TEAM_MEMBERS } from '../data/presets';
+import { useI18n } from '../i18n';
 
 interface TeamTabProps {
   onNavigateToHome: () => void;
@@ -10,12 +11,13 @@ export const TeamTab: React.FC<TeamTabProps> = ({
   onNavigateToHome,
   onNavigateToScanner
 }) => {
+  const { t } = useI18n();
   return (
     <div className="flex flex-col w-full max-w-[1280px] mx-auto space-y-6 sm:space-y-8 pb-12 font-sans">
       {/* Header */}
       <div className="flex flex-col space-y-1 text-left">
         <h1 className="font-display text-2xl sm:text-3xl text-[#131b2e] tracking-tight font-bold">
-          Meet the Team
+          {t('meetTeam')}
         </h1>
       </div>
 
@@ -84,10 +86,10 @@ export const TeamTab: React.FC<TeamTabProps> = ({
       <div className="relative overflow-hidden rounded-2xl bg-linear-to-r from-[#004ac6] to-[#2563eb] p-6 sm:p-8 text-white shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex flex-col space-y-1 text-center md:text-left z-10">
           <span className="font-display text-lg font-bold tracking-tight">
-            See label intelligence in action
+            {t('demo')}
           </span>
           <p className="text-xs text-white/90">
-            Experience real-time Legal Metrology parsing powered by our pipeline.
+            {t('recentSub')}
           </p>
         </div>
 
@@ -97,14 +99,14 @@ export const TeamTab: React.FC<TeamTabProps> = ({
             onClick={onNavigateToHome}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#faf8ff] text-[#131b2e] text-xs font-semibold shadow-xs hover:bg-[#f2f3ff] transition-colors cursor-pointer"
           >
-            <span>Back to Home</span>
+            <span>{t('backHome')}</span>
           </button>
           <button
             type="button"
             onClick={onNavigateToScanner}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white text-[#004ac6] text-xs font-bold shadow-xs hover:bg-[#eaedff] transition-colors cursor-pointer"
           >
-            <span>Try the Product Scanner</span>
+            <span>{t('tryScanner')}</span>
           </button>
         </div>
       </div>
