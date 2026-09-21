@@ -10,6 +10,7 @@ import {
   Play,
   Pause
 } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface OverviewTabProps {
   onNavigateToScanner: () => void;
@@ -21,17 +22,18 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   onNavigateToTeam
 }) => {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+  const { t } = useI18n();
 
   return (
     <div className="flex flex-col w-full max-w-[1280px] mx-auto space-y-6 sm:space-y-8 pb-12 font-sans">
       {/* Friendly Hero Header Section */}
       <section className="flex flex-col items-center text-center pt-2 space-y-3 sm:space-y-4">
         <h1 className="font-display text-2xl sm:text-4xl text-[#131b2e] font-bold tracking-tight max-w-2xl">
-          AI-Powered Packaging Label Verification
+          {t('homeHero')}
         </h1>
 
         <p className="text-sm sm:text-base text-[#434655] max-w-md mx-auto leading-relaxed">
-          Scan and verify packaged consumer products for legal metrology and label compliance easily.
+          {t('homeSub')}
         </p>
 
         {/* CTAs Stacked Cleanly for Mobile — NO TEXT ARROWS */}
@@ -41,7 +43,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             onClick={onNavigateToScanner}
             className="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#004ac6] text-white font-semibold text-sm shadow-md active:scale-[0.98] transition-transform hover:bg-[#003ea8] cursor-pointer"
           >
-            <span>Get Started</span>
+            <span>{t('getStarted')}</span>
           </button>
 
           <button
@@ -49,7 +51,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             onClick={onNavigateToTeam}
             className="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#eaedff] text-[#131b2e] font-semibold text-sm active:scale-[0.98] transition-transform hover:bg-[#e2e7ff] cursor-pointer"
           >
-            <span>Meet the Team</span>
+            <span>{t('meetTeam')}</span>
             <Users className="w-4 h-4 text-[#004ac6]" />
           </button>
         </div>
@@ -69,7 +71,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           <div className="relative z-10 flex flex-col items-center space-y-2">
             <button
               onClick={() => setIsPlayingVideo(!isPlayingVideo)}
-              aria-label="Play demo video"
+              aria-label={t('demo')}
               className="w-14 h-14 rounded-full bg-[#004ac6] text-white flex items-center justify-center shadow-lg active:scale-95 transition-transform hover:bg-[#003ea8] cursor-pointer"
               type="button"
             >
@@ -80,12 +82,12 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
               )}
             </button>
             <span className="font-display text-base text-[#131b2e] font-bold pt-1">
-              Product Demo Walkthrough
+              {t('demo')}
             </span>
             <span className="text-xs text-[#434655] max-w-xs">
               {isPlayingVideo
-                ? 'Playing simulated optical scan flow...'
-                : 'Watch how VeriLabel highlights non-compliant declarations in seconds.'}
+                ? t('demoPlaying')
+                : t('demoIdle')}
             </span>
           </div>
         </div>
@@ -96,7 +98,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
         <div className="flex items-center gap-2.5 text-[#004ac6]">
           <Lightbulb className="w-5 h-5 text-[#004ac6]" />
           <h2 className="font-display text-lg sm:text-xl text-[#131b2e] font-bold">
-            What VeriLabel Does
+            {t('whatDoes')}
           </h2>
         </div>
 
@@ -107,10 +109,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                1. User Captures Image
+                {t('step1')}
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                User takes a photo of the product label.
+                {t('step1d')}
               </span>
             </div>
           </div>
@@ -121,10 +123,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                2. AI Reads Label
+                {t('step2')}
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                AI analyzes the image and extracts key information.
+                {t('step2d')}
               </span>
             </div>
           </div>
@@ -135,10 +137,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                3. Data Validation
+                {t('step3')}
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                The system checks the extracted data against legal rules.
+                {t('step3d')}
               </span>
             </div>
           </div>
@@ -149,10 +151,10 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
             <div>
               <span className="font-semibold text-sm text-[#131b2e] block">
-                4. Report Generation
+                {t('step4')}
               </span>
               <span className="text-xs text-[#434655] leading-relaxed">
-                A comprehensive inspection PDF report is created.
+                {t('step4d')}
               </span>
             </div>
           </div>
@@ -161,7 +163,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
 
       {/* Minimal Footer */}
       <footer className="pt-4 pb-2 text-center text-xs text-[#434655]">
-        <p>© 2026 VeriLabel prototype.</p>
+        <p>{t('pagePrototype')}</p>
       </footer>
     </div>
   );

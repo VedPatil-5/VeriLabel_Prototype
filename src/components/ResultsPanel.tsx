@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   RefreshCw
 } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface ResultsPanelProps {
   sample: SampleDataset;
@@ -23,6 +24,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
   onDownloadPdf,
   isGeneratingPdf = false
 }) => {
+  const { t } = useI18n();
   const [violationsExpanded, setViolationsExpanded] = useState(true);
   const [compliantExpanded, setCompliantExpanded] = useState(true);
 
@@ -53,7 +55,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
             </div>
             <div className="flex items-center gap-2">
               <span className="text-base font-bold text-slate-900 font-display">
-                Violations Found
+                {t('violationsFound')}
               </span>
               <span
                 className={`px-2 py-0.5 rounded-full text-xs font-bold ${
@@ -80,7 +82,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
                 <CheckCircle2 className="w-6 h-6 text-[#15803D] shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-[#15803D]">
-                    No Statutory Violations Detected
+                    {t('noViolations')}
                   </span>
                   <span className="text-xs text-slate-600 mt-0.5">
                     All mandatory declaration parameters comply strictly with PCR 2011 and regulatory requirements.
@@ -143,7 +145,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
             </div>
             <div className="flex items-center gap-2">
               <span className="text-base font-bold text-slate-900 font-display">
-                Compliant Elements
+                {t('compliantElements')}
               </span>
               <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0]">
                 {compliantCount}
@@ -202,7 +204,7 @@ export const ResultsPanel: React.FC<ResultsPanelProps> = ({
             <Download className="w-4 h-4" />
           )}
           <span>
-            {isGeneratingPdf ? 'Generating Inspection PDF...' : 'Download Summary PDF'}
+                    {isGeneratingPdf ? t('generatingPdf') : t('downloadPdf')}
           </span>
         </button>
       </div>

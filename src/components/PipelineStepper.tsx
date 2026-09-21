@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layers, Scan, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 export interface PipelineStage {
   id: string;
@@ -19,6 +20,7 @@ export const PipelineStepper: React.FC<PipelineStepperProps> = ({
   stageProgress,
   stageLabel
 }) => {
+  const { t } = useI18n();
   const stages = [
     { id: 'prep', name: 'Pre-processing', icon: <Layers className="w-4 h-4" /> },
     { id: 'ocr', name: 'OCR', icon: <Scan className="w-4 h-4" /> },
@@ -33,7 +35,7 @@ export const PipelineStepper: React.FC<PipelineStepperProps> = ({
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#007AFF] animate-ping" />
           <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-            Simulated Analysis Pipeline
+            {t('analysis')}
           </span>
         </div>
         <span className="text-xs font-mono font-bold text-[#007AFF]">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FlaskConical, X } from 'lucide-react';
+import { useI18n } from '../i18n';
 
 interface PrototypeBadgeProps {
   variant?: 'banner' | 'pill' | 'compact';
@@ -7,13 +8,14 @@ interface PrototypeBadgeProps {
 
 export const PrototypeBadge: React.FC<PrototypeBadgeProps> = ({ variant = 'banner' }) => {
   const [dismissed, setDismissed] = useState(false);
+  const { t } = useI18n();
 
   if (dismissed && variant === 'banner') return null;
 
   if (variant === 'pill') {
     return (
       <div className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#e6eeff] text-[#00153b] font-mono text-[11px] font-semibold border border-[#c4c6d0]/40 shadow-xs">
-        <span>Prototype</span>
+        <span>{t('prototype')}</span>
       </div>
     );
   }
@@ -21,7 +23,7 @@ export const PrototypeBadge: React.FC<PrototypeBadgeProps> = ({ variant = 'banne
   if (variant === 'compact') {
     return (
       <div className="flex items-center text-xs text-[#0f2a59] font-medium bg-[#eff4ff] px-2 py-1 rounded border border-[#0f2a59]/15">
-        <span>Prototype</span>
+        <span>{t('prototype')}</span>
       </div>
     );
   }
@@ -36,7 +38,7 @@ export const PrototypeBadge: React.FC<PrototypeBadgeProps> = ({ variant = 'banne
               Legal Metrology Sandbox
             </span>
             <span className="px-2 py-0.5 rounded-full bg-[#0f2a59] text-white text-[10px] font-mono font-bold">
-              Prototype
+              {t('prototype')}
             </span>
           </div>
           <p className="text-xs text-[#44474f] mt-0.5 leading-relaxed">

@@ -1,6 +1,29 @@
 import { jsPDF } from 'jspdf';
 import { SampleDataset } from '../types';
 
+export type PdfLanguage = 'en' | 'hi' | 'mr';
+const pdfFontName = 'NotoSansDevanagari-Regular.ttf';
+let fontPromise: Promise<string | null> | null = null;
+
+async function loadUnicodeFont(): Promise<string | null> {
+  if (!fontPromise) {
+    fontPromise = fetch(`/fonts/${pdfFontName}`).then(async (response) => {
+      if (!response.ok) return null;
+      const bytes = new Uint8Array(await response.arrayBuffer());
+      let binary = '';
+      bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+      return btoa(binary);
+    }).catch(() => null);
+  }
+  return fontPromise;
+}
+
+const pdfCopy: Record<PdfLanguage, Record<string, string>> = {
+  en: { title: 'VeriLabel Inspection Report', form: 'FORM LM-VI', summary: 'INSPECTION AUDIT SUMMARY', violations: 'Violations Found', compliant: 'Compliant Elements', actions: 'Change Log & Corrective Action Plan', optical: 'Detected Optical Regions & Bounding-Box Analysis', status: 'Status', product: 'Product', category: 'Category', quantity: 'Declared Net Qty', date: 'Mfg / Pkg Date', reference: 'Case Reference', timestamp: 'Audit Timestamp', mrp: 'Declared MRP', footer: 'VeriLabel Automated Legal Metrology Inspection • Prototype' },
+  hi: { title: 'VeriLabel निरीक्षण रिपोर्ट', form: 'फॉर्म LM-VI', summary: 'निरीक्षण ऑडिट सारांश', violations: 'मिले उल्लंघन', compliant: 'अनुपालक तत्व', actions: 'परिवर्तन लॉग और सुधार योजना', optical: 'पता चले ऑप्टिकल क्षेत्र और बाउंडिंग-बॉक्स विश्लेषण', status: 'स्थिति', product: 'उत्पाद', category: 'श्रेणी', quantity: 'घोषित मात्रा', date: 'निर्माण / पैकिंग तिथि', reference: 'केस संदर्भ', timestamp: 'ऑडिट समय', mrp: 'घोषित MRP', footer: 'VeriLabel स्वचालित कानूनी मेट्रोलॉजी निरीक्षण • प्रोटोटाइप' },
+  mr: { title: 'VeriLabel तपासणी अहवाल', form: 'फॉर्म LM-VI', summary: 'तपासणी ऑडिट सारांश', violations: 'आढळलेली उल्लंघने', compliant: 'अनुपालक घटक', actions: 'बदल नोंद आणि सुधारणा योजना', optical: 'आढळलेले ऑप्टिकल क्षेत्र आणि बाउंडिंग-बॉक्स विश्लेषण', status: 'स्थिती', product: 'उत्पादन', category: 'श्रेणी', quantity: 'घोषित प्रमाण', date: 'निर्मिती / पॅकिंग तारीख', reference: 'केस संदर्भ', timestamp: 'ऑडिट वेळ', mrp: 'घोषित MRP', footer: 'VeriLabel स्वयंचलित कायदेशीर मेट्रोलॉजी तपासणी • प्रोटोटाइप' }
+};
+
 /**
  * Sanitizes text for standard jsPDF Helvetica fonts (WinAnsi encoding).
  * Replaces Indian Rupee symbol with 'Rs.', Unicode checkmarks, bullets, and dashes
@@ -26,12 +49,25 @@ function cleanPdfText(text: string | undefined | null): string {
  * Violations Found, Compliant Elements, Change Log & Corrective Actions,
  * and Detected Optical Regions / Bounding-Box Details.
  */
-export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob> {
+export async function generateInspectionPdf(sample: SampleDataset, options: { language?: PdfLanguage } = {}): Promise<Blob> {
+  const language = options.language || 'en';
+  const copy = pdfCopy[language];
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
     format: 'a4'
   });
+  const fontData = await loadUnicodeFont();
+  // Keep English reports on jsPDF's stable built-in font. The Devanagari font
+  // is only needed for Hindi/Marathi; using it for English was the source of
+  // the all-black/garbled report symptom in some PDF viewers.
+  const reportFont = language === 'en' ? 'helvetica' : (fontData ? 'NotoSansDevanagari' : 'helvetica');
+  if (fontData) {
+    doc.addFileToVFS(pdfFontName, fontData);
+    doc.addFont(pdfFontName, 'NotoSansDevanagari', 'normal');
+    doc.addFont(pdfFontName, 'NotoSansDevanagari', 'bold');
+    doc.setFont('NotoSansDevanagari', 'normal');
+  }
 
   const pageWidth = doc.internal.pageSize.getWidth(); // 210mm
   const pageHeight = doc.internal.pageSize.getHeight(); // 297mm
@@ -49,10 +85,10 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
     doc.line(margin, footerY - 3, pageWidth - margin, footerY - 3);
 
     doc.setTextColor(100, 116, 139);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(reportFont, 'normal');
     doc.setFontSize(7.5);
     doc.text(
-      'VeriLabel Automated Legal Metrology Inspection • Client-Side Verified Report • Prototype',
+      cleanPdfText(copy.footer),
       margin,
       footerY + 1
     );
@@ -71,10 +107,10 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
       doc.setFillColor(15, 42, 89);
       doc.rect(margin, y, contentWidth, 8, 'F');
       doc.setTextColor(255, 255, 255);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(reportFont, 'bold');
       doc.setFontSize(8);
-      doc.text('VeriLabel Inspection Report (Contd.)', margin + 3, y + 5.5);
-      doc.setFont('helvetica', 'normal');
+      doc.text(`${copy.title} (Contd.)`, margin + 3, y + 5.5);
+      doc.setFont(reportFont, 'normal');
       doc.text(`Case: ${caseId}`, pageWidth - margin - 3, y + 5.5, { align: 'right' });
       y += 13;
     }
@@ -82,7 +118,8 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
   // Case ID and Timestamp
   const caseId = `VL-${sample.id.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`;
-  const timestamp = new Date().toLocaleString('en-IN', {
+  const locale = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN';
+  const timestamp = new Date().toLocaleString(locale, {
     dateStyle: 'medium',
     timeStyle: 'short'
   });
@@ -92,18 +129,18 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   doc.rect(margin, y, contentWidth, 22, 'F');
 
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(16);
   doc.text('VeriLabel', margin + 6, y + 9);
 
-  doc.setFont('helvetica', 'normal');
+  doc.setFont(reportFont, 'normal');
   doc.setFontSize(8.5);
-  doc.text('Every Label, Verified - Statutory Legal Metrology Inspection', margin + 6, y + 16);
+  doc.text(language === 'en' ? 'Every Label, Verified - Statutory Legal Metrology Inspection' : copy.title, margin + 6, y + 16);
 
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(9.5);
-  doc.text('FORM LM-VI', pageWidth - margin - 6, y + 9, { align: 'right' });
-  doc.setFont('helvetica', 'normal');
+  doc.text(copy.form, pageWidth - margin - 6, y + 9, { align: 'right' });
+  doc.setFont(reportFont, 'normal');
   doc.setFontSize(8);
   doc.text('Rule 6 / Rule 18 Audit Dossier', pageWidth - margin - 6, y + 16, { align: 'right' });
 
@@ -127,27 +164,27 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   doc.roundedRect(margin, y, contentWidth, 32, 2, 2, 'FD');
 
   doc.setTextColor(15, 42, 89);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(9.5);
-  doc.text('INSPECTION AUDIT SUMMARY', col1X, y + 6);
+  doc.text(copy.summary, col1X, y + 6);
 
-  doc.setFont('helvetica', 'normal');
+  doc.setFont(reportFont, 'normal');
   doc.setFontSize(8);
   doc.setTextColor(51, 65, 85);
 
   // Left Column
-  const nameLines = doc.splitTextToSize(`Product: ${cleanName}`, colWidth - 2);
-  doc.text(nameLines[0] || `Product: ${cleanName}`, col1X, y + 12.5);
-  doc.text(`Category: ${cleanCategory}`, col1X, y + 18);
-  doc.text(`Declared Net Qty: ${cleanQty}`, col1X, y + 23.5);
-  doc.text(`Mfg / Pkg Date: ${cleanMfg}`, col1X, y + 29);
+  const nameLines = doc.splitTextToSize(`${copy.product}: ${cleanName}`, colWidth - 2);
+  doc.text(nameLines[0] || `${copy.product}: ${cleanName}`, col1X, y + 12.5);
+  doc.text(`${copy.category}: ${cleanCategory}`, col1X, y + 18);
+  doc.text(`${copy.quantity}: ${cleanQty}`, col1X, y + 23.5);
+  doc.text(`${copy.date}: ${cleanMfg}`, col1X, y + 29);
 
   // Right Column
-  doc.text(`Case Reference: ${caseId}`, col2X, y + 12.5);
-  doc.text(`Audit Timestamp: ${cleanPdfText(timestamp)}`, col2X, y + 18);
-  doc.text(`Declared MRP: ${cleanMrp}`, col2X, y + 23.5);
+  doc.text(`${copy.reference}: ${caseId}`, col2X, y + 12.5);
+  doc.text(`${copy.timestamp}: ${cleanPdfText(timestamp)}`, col2X, y + 18);
+  doc.text(`${copy.mrp}: ${cleanMrp}`, col2X, y + 23.5);
   const verdictLabel = sample.violations && sample.violations.length > 0 ? 'NON-COMPLIANT' : 'COMPLIANT';
-  doc.text(`Status: ${verdictLabel}`, col2X, y + 29);
+  doc.text(`${copy.status}: ${verdictLabel}`, col2X, y + 29);
 
   y += 36;
 
@@ -158,7 +195,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
     doc.setDrawColor(252, 165, 165);
     doc.roundedRect(margin, y, contentWidth, 12, 1.5, 1.5, 'FD');
     doc.setTextColor(185, 28, 28);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(reportFont, 'bold');
     doc.setFontSize(9.5);
     doc.text(
       `VERDICT: STATUTORY INFRACTIONS DETECTED (${sample.violations.length} VIOLATION${sample.violations.length > 1 ? 'S' : ''})`,
@@ -170,7 +207,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
     doc.setDrawColor(134, 239, 172);
     doc.roundedRect(margin, y, contentWidth, 12, 1.5, 1.5, 'FD');
     doc.setTextColor(21, 128, 61);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(reportFont, 'bold');
     doc.setFontSize(9.5);
     doc.text('VERDICT: 100% STATUTORY COMPLIANCE SATISFIED', margin + 5, y + 7.5);
   }
@@ -180,9 +217,9 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   // 4. Section 1: Violations Found
   checkPageBreak(24);
   doc.setTextColor(185, 28, 28);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(10.5);
-  doc.text(`1. Violations Found (${sample.violations ? sample.violations.length : 0})`, margin, y);
+  doc.text(`1. ${copy.violations} (${sample.violations ? sample.violations.length : 0})`, margin, y);
   doc.setDrawColor(185, 28, 28);
   doc.setLineWidth(0.4);
   doc.line(margin, y + 2, margin + contentWidth, y + 2);
@@ -190,7 +227,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
   if (!sample.violations || sample.violations.length === 0) {
     doc.setTextColor(21, 128, 61);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(reportFont, 'normal');
     doc.setFontSize(8.5);
     doc.text('- No statutory infractions detected under PCR 2011 Rule 6 / Rule 18.', margin + 3, y);
     y += 7;
@@ -211,7 +248,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
       // Header Tag
       doc.setTextColor(185, 28, 28);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(reportFont, 'bold');
       doc.setFontSize(8.5);
       doc.text(
         `${idx + 1}. [${cleanPdfText(v.code)}] - Severity: ${cleanPdfText(v.badge).toUpperCase()}`,
@@ -221,7 +258,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
       // Description
       doc.setTextColor(30, 41, 59);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(reportFont, 'normal');
       doc.setFontSize(8);
       let textY = y + 8.5;
       doc.text(descLines, margin + 4, textY);
@@ -241,9 +278,9 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   // 5. Section 2: Compliant Elements
   checkPageBreak(24);
   doc.setTextColor(21, 128, 61);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(10.5);
-  doc.text(`2. Compliant Elements (${sample.compliant ? sample.compliant.length : 0})`, margin, y);
+  doc.text(`2. ${copy.compliant} (${sample.compliant ? sample.compliant.length : 0})`, margin, y);
   doc.setDrawColor(21, 128, 61);
   doc.setLineWidth(0.4);
   doc.line(margin, y + 2, margin + contentWidth, y + 2);
@@ -268,13 +305,13 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
       // Title & Pass Tag
       doc.setTextColor(15, 42, 89);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(reportFont, 'bold');
       doc.setFontSize(8.5);
       doc.text(`[PASS] ${cleanLabel}`, margin + 4, y + 4.5);
 
       // Declared Value
       doc.setTextColor(30, 41, 59);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(reportFont, 'normal');
       doc.setFontSize(8);
       let textY = y + 8.5;
       doc.text(valLines, margin + 4, textY);
@@ -294,9 +331,9 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   // 6. Section 3: Change Log & Corrective Action Plan
   checkPageBreak(26);
   doc.setTextColor(15, 42, 89);
-  doc.setFont('helvetica', 'bold');
+  doc.setFont(reportFont, 'bold');
   doc.setFontSize(10.5);
-  doc.text('3. Change Log & Corrective Action Plan', margin, y);
+  doc.text(`3. ${copy.actions}`, margin, y);
   doc.setDrawColor(15, 42, 89);
   doc.setLineWidth(0.4);
   doc.line(margin, y + 2, margin + contentWidth, y + 2);
@@ -321,12 +358,12 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
       doc.roundedRect(margin, y, contentWidth, itemHeight, 1.5, 1.5, 'FD');
 
       doc.setTextColor(15, 42, 89);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(reportFont, 'bold');
       doc.setFontSize(8.5);
       doc.text(`Action ${idx + 1}: ${cleanTarget}`, margin + 4, y + 4.5);
 
       doc.setTextColor(30, 41, 59);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(reportFont, 'normal');
       doc.setFontSize(8);
       let textY = y + 8.5;
       doc.text(actionLines, margin + 4, textY);
@@ -342,7 +379,7 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
     });
   } else {
     doc.setTextColor(71, 85, 105);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(reportFont, 'normal');
     doc.setFontSize(8.5);
     doc.text(
       'No corrective packaging modifications required. All declarations conform to statutory standards.',
@@ -358,9 +395,9 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
   if (sample.boundingBoxes && sample.boundingBoxes.length > 0) {
     checkPageBreak(26);
     doc.setTextColor(15, 42, 89);
-    doc.setFont('helvetica', 'bold');
+    doc.setFont(reportFont, 'bold');
     doc.setFontSize(10.5);
-    doc.text(`4. Detected Optical Regions & Bounding-Box Analysis (${sample.boundingBoxes.length})`, margin, y);
+    doc.text(`4. ${copy.optical} (${sample.boundingBoxes.length})`, margin, y);
     doc.setDrawColor(15, 42, 89);
     doc.setLineWidth(0.4);
     doc.line(margin, y + 2, margin + contentWidth, y + 2);
@@ -410,13 +447,13 @@ export async function generateInspectionPdf(sample: SampleDataset): Promise<Blob
 
       // Header with Tag and Label
       doc.setTextColor(...tagColor);
-      doc.setFont('helvetica', 'bold');
+      doc.setFont(reportFont, 'bold');
       doc.setFontSize(8.5);
       doc.text(`${idx + 1}. ${badgeTag} ${cleanLabel}`, margin + 5, y + 4.5);
 
       // Extraction detail
       doc.setTextColor(30, 41, 59);
-      doc.setFont('helvetica', 'normal');
+      doc.setFont(reportFont, 'normal');
       doc.setFontSize(8);
       let textY = y + 8.5;
       doc.text(detailLines, margin + 5, textY);
