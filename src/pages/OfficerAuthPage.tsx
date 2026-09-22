@@ -58,7 +58,7 @@ export const OfficerAuthPage: React.FC<{ navigate: (path: string) => void }> = (
             <button type="button" onClick={() => setShow(!show)} aria-label={show ? 'Hide password' : 'Show password'} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]">{show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button>
           </span>
         </label>
-        {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700 dark:bg-red-950/30 dark:text-red-300">{error}</p>}
+        {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
         <button type="submit" className="mt-6 w-full rounded-xl bg-[var(--primary)] px-4 py-3 font-semibold text-white transition hover:opacity-90">{t('loginButton')}</button>
         <button type="button" onClick={autofill} className="mt-3 w-full rounded-xl border border-[var(--primary)] px-4 py-3 text-sm font-semibold text-[var(--primary)] transition hover:bg-[var(--primary-soft)]">{t('autofillCredentials')}</button>
         <button type="button" onClick={() => { setSignUp(!signUp); setError(''); }} className="mt-4 w-full text-sm font-semibold text-[var(--primary)]">{signUp ? t('login') : t('signup')}</button>

@@ -1,108 +1,34 @@
 {
   "id": "sample5",
-  "name": "DailyVita Multivitamin Gummies (60s)",
-  "category": "Health Supplements / Nutraceuticals",
-  "netQuantity": "60 N (60 Gummies)",
-  "mrp": "₹699.00 (Incl. of all taxes)",
-  "mfgDate": "01/2025",
-  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuABAHXFTtyJOm_hjaJmMBT0xQAeGZm8QlejnjOsOAScas6amp_BEzveqcwBPlkbq6fVGK8jk0UFoB6e9fEbz6MuCFsJPD3LVUJDVGRLDoAReSWCkdYR3fgMZVbfZDhHVp6iflVVnOpyHrf0tn-R9NLpI5VgT4ayth7MPgGrm4wPcq9XW5_gJqk3HXJfo5duTRQAffJuKI_T5-Qwndw431fwf7RgsOAn7-Ymm3VvzNLg76i2WdS9ymV_mw",
-  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuABAHXFTtyJOm_hjaJmMBT0xQAeGZm8QlejnjOsOAScas6amp_BEzveqcwBPlkbq6fVGK8jk0UFoB6e9fEbz6MuCFsJPD3LVUJDVGRLDoAReSWCkdYR3fgMZVbfZDhHVp6iflVVnOpyHrf0tn-R9NLpI5VgT4ayth7MPgGrm4wPcq9XW5_gJqk3HXJfo5duTRQAffJuKI_T5-Qwndw431fwf7RgsOAn7-Ymm3VvzNLg76i2WdS9ymV_mw",
-  "summary": "Flagged: Missing Mandatory Consumer Care Helpline Telephone",
-  "badgeText": "Missing Helpline",
+  "caseReference": "VL-SAMPLE6-2360",
+  "name": "Electral ORS Sachet",
+  "category": "Pharmaceutical / Oral Rehydration Formulation",
+  "netQuantity": "Not visible in captured frame",
+  "mrp": "Rs. 4.68 (Incl. of all taxes)",
+  "mfgDate": "Mfg: 04/2026 | Exp: 03/2028",
+  "imagePath": "/assets/labels/product-5.jpeg",
+  "thumbnailUrl": "/assets/labels/product-5.jpeg",
+  "summary": "Flagged: Declared Powder Weight Not Visible",
+  "badgeText": "1 Critical Violation",
   "defaultStatus": "VIOLATION",
   "boundingBoxes": [
-    {
-      "id": "box_5_1",
-      "xPercent": 18,
-      "yPercent": 62,
-      "widthPercent": 64,
-      "heightPercent": 18,
-      "label": "MISSING CARE TEL NO.",
-      "boxColor": "red",
-      "detail": "Website listed without mandatory consumer telephone helpline",
-      "ruleCode": "PCR 2011 Clause 6(1)(h)"
-    },
-    {
-      "id": "box_5_2",
-      "xPercent": 18,
-      "yPercent": 32,
-      "widthPercent": 36,
-      "heightPercent": 14,
-      "label": "QUANTITY: 60 N",
-      "boxColor": "green",
-      "detail": "Count symbol 'N' compliant",
-      "ruleCode": "PCR 2011 Clause 6(1)(b)"
-    },
-    {
-      "id": "box_5_3",
-      "xPercent": 18,
-      "yPercent": 48,
-      "widthPercent": 46,
-      "heightPercent": 14,
-      "label": "MRP: ₹699.00",
-      "boxColor": "green",
-      "detail": "Inclusive of all taxes",
-      "ruleCode": "PCR 2011 Clause 6(1)(c)"
-    },
-    {
-      "id": "box_5_4",
-      "xPercent": 56,
-      "yPercent": 32,
-      "widthPercent": 38,
-      "heightPercent": 16,
-      "label": "MFG 01/2025 • EXP 01/2027",
-      "boxColor": "green",
-      "detail": "Indelible laser batch print",
-      "ruleCode": "PCR 2011 Clause 6(1)(d)"
-    }
+    {"id": "box_5_1", "xPercent": 58, "yPercent": 52, "widthPercent": 37, "heightPercent": 30, "label": "NET WEIGHT MISSING", "boxColor": "red", "detail": "Declared weight of powder contents is not visible on the captured panel", "ruleCode": "PCR 2011 Rule 6(1)(c)"},
+    {"id": "box_5_2", "xPercent": 50, "yPercent": 28, "widthPercent": 46, "heightPercent": 18, "label": "MFG / EXP: 04/2026 - 03/2028", "boxColor": "green", "detail": "Manufacturing and expiry dates are distinctly legible", "ruleCode": "PCR 2011 Rule 6(1)(d)"},
+    {"id": "box_5_3", "xPercent": 58, "yPercent": 42, "widthPercent": 34, "heightPercent": 10, "label": "BATCH: 0826D052", "boxColor": "green", "detail": "Batch number is declared", "ruleCode": "PCR 2011 Rule 6(1)(e)"},
+    {"id": "box_5_4", "xPercent": 58, "yPercent": 82, "widthPercent": 36, "heightPercent": 10, "label": "MRP: Rs. 4.68", "boxColor": "green", "detail": "MRP is inclusive of all taxes", "ruleCode": "PCR 2011 Rule 6(1)(e)"}
   ],
   "violations": [
-    {
-      "id": "v5_1",
-      "code": "CONSUMER CARE HELPLINE TELEPHONE",
-      "severity": "critical",
-      "badge": "critical",
-      "desc": "Consumer grievance panel contains only a URL (www.dailyvita.in/help); mandatory telephone/toll-free helpline number is missing.",
-      "rule": "PCR 2011 Clause 6(1)(h): Name, address, telephone number and e-mail address of the person or office who may be contacted in case of consumer complaints."
-    }
+    {"id": "v5_1", "code": "NET QUANTITY", "severity": "critical", "badge": "critical", "desc": "Declared weight of powder contents is not visible on the captured panel.", "rule": "PCR 2011 Rule 6(1)(c): Net quantity in standard SI units."}
   ],
   "compliant": [
-    {
-      "id": "c5_1",
-      "label": "Net Quantity by Unit Count",
-      "status": "Compliant",
-      "desc": "Declared using standard count symbol '60 N' (60 Gummies).",
-      "value": "60 N (Count)"
-    },
-    {
-      "id": "c5_2",
-      "label": "Maximum Retail Price (MRP)",
-      "status": "Compliant",
-      "desc": "MRP ₹699.00 inclusive of taxes clearly marked.",
-      "value": "₹699.00 (Incl. of all taxes)"
-    },
-    {
-      "id": "c5_3",
-      "label": "Manufacturing & Expiry Dates",
-      "status": "Compliant",
-      "desc": "High contrast print of MFD: 01/2025 and EXP: 01/2027.",
-      "value": "MFD: 01/2025 • EXP: 01/2027"
-    },
-    {
-      "id": "c5_4",
-      "label": "Nutritional Matrix & Disclaimer",
-      "status": "Compliant",
-      "desc": "Standard RDA vitamins breakdown and 'Health Supplement' disclaimer present.",
-      "value": "Compliant (Full Panel)"
-    }
+    {"id": "c5_1", "label": "Manufacturer Details", "status": "Compliant", "desc": "FDC Ltd. and the full plant address at Waluj, Chhatrapati Sambhajinagar are declared.", "value": "FDC Ltd., Waluj, Chhatrapati Sambhajinagar"},
+    {"id": "c5_2", "label": "Manufacturing License No.", "status": "Compliant", "desc": "Manufacturing license number is declared.", "value": "1135"},
+    {"id": "c5_3", "label": "Batch Number", "status": "Compliant", "desc": "Batch number is declared on the sachet.", "value": "0826D052"},
+    {"id": "c5_4", "label": "Mfg/Exp Date", "status": "Compliant", "desc": "Manufacturing and expiry dates are distinctly legible.", "value": "04/2026 - 03/2028"},
+    {"id": "c5_5", "label": "Maximum Retail Price", "status": "Compliant", "desc": "MRP is declared inclusive of all taxes.", "value": "Rs. 4.68 (Incl. of all taxes)"}
   ],
   "changeLog": [
-    {
-      "id": "cl5_1",
-      "targetViolation": "Grievance Contact Coordinates",
-      "actionRequired": "Add an active customer helpline telephone number (e.g., 'Helpline: +91-80-XXXX-XXXX' or 'Toll-Free: 1800-XXX-XXXX') on the side label.",
-      "statutoryReference": "PCR 2011 Clause 6(1)(h)"
-    }
+    {"id": "cl5_1", "targetViolation": "Net Quantity", "actionRequired": "Ensure net powder weight in grams is declared on this panel or confirm its presence on the front of the pack in a re-scan.", "statutoryReference": "PCR 2011 Rule 6(1)(c)"},
+    {"id": "cl5_2", "targetViolation": "Auditor Note", "actionRequired": "Review the product under applicable DPCO pricing norms in addition to the core PCR 2011 check.", "statutoryReference": "Dual-regime review recommended"}
   ]
 }
-

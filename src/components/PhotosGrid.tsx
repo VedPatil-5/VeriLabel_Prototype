@@ -18,8 +18,8 @@ export const PhotosGrid: React.FC<PhotosGridProps> = ({
   const { t } = useI18n();
   if (!isOpen) return null;
 
-  // We display exactly the 5 plain square images edge-to-edge as specified
-  const displaySamples = samples.slice(0, 5);
+  // Display every available library image in the same plain square grid.
+  const displaySamples = samples;
 
   return (
     <div className="fixed inset-0 z-50 bg-[#f8f9ff] flex flex-col font-sans select-none animate-fadeIn">
