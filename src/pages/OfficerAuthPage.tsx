@@ -4,7 +4,7 @@ import { useI18n } from '../i18n';
 import { GlobalControls } from '../components/GlobalControls';
 
 const DEMO_ID = 'officer@verilabel.demo';
-const DEMO_PASSWORD = 'officer123';
+const DEMO_PASSWORD = 'VL-Demo-2026-Only!';
 
 export const OfficerAuthPage: React.FC<{ navigate: (path: string) => void }> = ({ navigate }) => {
   const { t } = useI18n();
@@ -48,13 +48,13 @@ export const OfficerAuthPage: React.FC<{ navigate: (path: string) => void }> = (
           <p className="mt-2 text-xs">{t('demoNote')}</p>
         </div>
       </section>
-      <form onSubmit={submit} className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_14px_40px_var(--shadow)]">
+      <form onSubmit={submit} autoComplete="off" className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_14px_40px_var(--shadow)]">
         <label className="block text-sm font-semibold">{t('officerId')}
           <input required value={id} onChange={(e) => { setId(e.target.value); setError(''); }} type="email" autoComplete="username" className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 outline-none focus:ring-2 focus:ring-[var(--primary)]" />
         </label>
         <label className="mt-4 block text-sm font-semibold">{t('password')}
           <span className="relative mt-2 block">
-            <input required value={password} onChange={(e) => { setPassword(e.target.value); setError(''); }} type={show ? 'text' : 'password'} autoComplete="current-password" className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 pr-11 outline-none focus:ring-2 focus:ring-[var(--primary)]" />
+            <input required name="demo-password" value={password} onChange={(e) => { setPassword(e.target.value); setError(''); }} type={show ? 'text' : 'password'} autoComplete="new-password" data-demo-credential="true" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" spellCheck={false} className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 pr-11 outline-none focus:ring-2 focus:ring-[var(--primary)]" />
             <button type="button" onClick={() => setShow(!show)} aria-label={show ? 'Hide password' : 'Show password'} className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]">{show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}</button>
           </span>
         </label>

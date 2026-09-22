@@ -159,7 +159,7 @@ Each item records existing situation, required change, code-change decision, sol
 - Existing: none.
 - Required: Officer ID/email, password, Login, Sign Up, visible demo credentials, valid/invalid behavior.
 - Code changes: Yes.
-- Solution: OfficerAuthPage compares against constants officer@verilabel.demo / officer123, shows a prototype-credentials callout, stores session-only demo state, redirects to dashboard, and shows localized invalid/empty errors. Sign Up is clearly non-persistent prototype UI.
+- Solution: OfficerAuthPage compares against the visible demo credentials, shows a prototype-credentials callout, treats the password as a non-production new-password field, stores session-only demo state, redirects to dashboard, and shows localized invalid/empty errors. Sign Up is clearly non-persistent prototype UI.
 - Affected: new auth page/context/guard, i18n, shared form styles.
 - Dependencies: none beyond router.
 - Test: valid/invalid/empty, keyboard labels, protected route, refresh/logout, dark mode/locales.
@@ -252,7 +252,7 @@ Each item records existing situation, required change, code-change decision, sol
 
 ### 4.11 Floating Officer Assistant
 
-- Existing: ChatbotFab is fixed bottom-right above bottom nav, opens “Coming Soon” panel, and is mounted globally.
+- Existing: ChatbotFab is fixed bottom-right, opens the assistant panel, and is mounted globally.
 - Required: circular bottom-right button, accessible/responsive/non-obstructive, Officer Assistant in Officer experience.
 - Code changes: Yes.
 - Solution: retain component, use safe-area/route-aware offsets, translated labels, prototype disclaimer, and a source-labeled officer panel. Use only curated verified source snippets or an explicit source-not-connected state; never generate unsupported legal advice. Customer may retain placeholder.
@@ -367,7 +367,7 @@ Reuse existing React, Vite, TypeScript, Tailwind, Lucide, jsPDF, Tesseract.js, h
 - Language/theme controls have visible names, selected state, keyboard focus, and Escape/outside-click handling.
 - Use semantic headings/labels, status text in addition to color, table headers, chart summaries, dialog labels, and alt text.
 - Respect prefers-reduced-motion.
-- Use safe-area-aware bottom nav/FAB spacing; FAB never covers primary content on mobile.
+- Use safe-area-aware FAB spacing; FAB never covers primary content on mobile.
 - Test desktop, laptop, tablet, narrow mobile, keyboard-only use, and larger text/zoom.
 
 ## 9. Implementation sequence after approval
