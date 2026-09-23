@@ -53,7 +53,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Jay Shirodkar',
     role: 'Backend & QA',
     photoUrl: '/assets/team/jay-shirodkar.jpg',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/sachinshirodkar942-create',
     linkedinUrl: 'https://www.linkedin.com/in/jay-shirodkar-1971b9395/'
   },
   {
