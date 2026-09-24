@@ -2,8 +2,6 @@
 
 VeriLabel is a frontend-only prototype for guided packaged-commodity label inspection. It presents a customer scanning flow and a prototype Legal Metrology officer workspace for reviewing sample findings, optical regions, compliance items, and client-generated inspection reports.
 
-> **Prototype notice:** VeriLabel is for demonstration and concept validation. It is not a production inspection system, an official government record, an enforcement decision, or a substitute for current legal review by an authorised officer.
-
 ## What the prototype demonstrates
 
 - A role-selection landing page for Customer and Officer journeys.
@@ -15,11 +13,6 @@ VeriLabel is a frontend-only prototype for guided packaged-commodity label inspe
 - A small source-linked FAQ assistant that answers recognised local keywords without making a network or AI API request.
 - Light and dark themes, English/Hindi/Marathi UI strings, local team portraits, social links, and an autoplay homepage video.
 
-## Current boundaries
-
-The visible scan flow does not capture live camera input or call a live OCR/rules service. The installed Tesseract dependency is not wired into the current user flow. Results are deterministic fixture data, and the progress animation is simulated. Officer authentication is client-side demo authentication, not secure identity management. There is no backend, database, server-side report store, audit log, or secrets management layer.
-
-Legal and statistical content must be treated as prototype material. Rule references and links are starting points for source review; Mumbai records, penalty examples, evidence hashes, and dashboard totals are not verified government data.
 
 ## Routes
 
@@ -51,8 +44,6 @@ Open the local URL printed by Vite. For a production-style check:
 npm run build
 npm run preview
 ```
-
-The project currently exposes only the scripts shown above; there is no backend start command.
 
 ## Main user flows
 
