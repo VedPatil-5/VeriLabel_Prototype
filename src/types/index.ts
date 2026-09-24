@@ -40,6 +40,7 @@ export interface ChangeLogItem {
 
 export interface SampleDataset {
   id: string;
+  caseReference?: string;
   name: string;
   category: string;
   netQuantity: string;

@@ -1,113 +1,34 @@
 {
   "id": "sample2",
-  "name": "PureSpring Natural Mineral Water (1L)",
-  "category": "Packaged Beverage / Drinking Water",
-  "netQuantity": "1000 mL (1 Litre)",
-  "mrp": "₹20.00 (Inclusive of all taxes)",
-  "mfgDate": "02/2025",
-  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuA92MbDyUh4I6DtC-M_fb7wrJ71XIKjIVIPvXm6rRjPry2Pc96WzvRw0f5V63AsGN0AQOfcIJ9NJtt-B4YYOjgPzBWhXp-GNYCeaWayLCVfU0HbgDWHj8bR6A45r9_GWqLGkSu4d1qS13p7GAmfB1eV4VRCIp2EuXM57dN57MkpYWOXWSw7td7DvkMAasGH3G_-WEq4jRPgSTe-l0jfnLK7yw2B-yj89q4g6P9VvPhzmm9zftoTkIKvew",
-  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA92MbDyUh4I6DtC-M_fb7wrJ71XIKjIVIPvXm6rRjPry2Pc96WzvRw0f5V63AsGN0AQOfcIJ9NJtt-B4YYOjgPzBWhXp-GNYCeaWayLCVfU0HbgDWHj8bR6A45r9_GWqLGkSu4d1qS13p7GAmfB1eV4VRCIp2EuXM57dN57MkpYWOXWSw7td7DvkMAasGH3G_-WEq4jRPgSTe-l0jfnLK7yw2B-yj89q4g6P9VvPhzmm9zftoTkIKvew",
-  "summary": "100% Compliant: Full PCR 2011 & FSSAI Verification Pass",
-  "badgeText": "100% Compliant (Pass)",
-  "defaultStatus": "COMPLIANT",
+  "caseReference": "VL-SAMPLE3-8830",
+  "name": "Casio FX-991CW Scientific Calculator",
+  "category": "Electronics / Imported Commodity",
+  "netQuantity": "1 Piece",
+  "mrp": "Rs. 1595.00 (Incl. of all taxes)",
+  "mfgDate": "Manufactured: 08/2024 | Import month/year: Not separately declared",
+  "imagePath": "/assets/labels/product-2.jpeg",
+  "thumbnailUrl": "/assets/labels/product-2.jpeg",
+  "summary": "Flagged: Month and Year of Import Not Declared Separately",
+  "badgeText": "1 Major Violation",
+  "defaultStatus": "VIOLATION",
   "boundingBoxes": [
-    {
-      "id": "box_2_1",
-      "xPercent": 24,
-      "yPercent": 28,
-      "widthPercent": 52,
-      "heightPercent": 14,
-      "label": "NET VOLUME: 1000 mL",
-      "boxColor": "green",
-      "detail": "1 Litre standard metric volume declaration",
-      "ruleCode": "PCR 2011 Clause 6(1)(b)"
-    },
-    {
-      "id": "box_2_2",
-      "xPercent": 24,
-      "yPercent": 46,
-      "widthPercent": 48,
-      "heightPercent": 12,
-      "label": "USP: ₹0.02 / mL",
-      "boxColor": "green",
-      "detail": "Statutory Unit Sale Price declared under Rule 6(11)",
-      "ruleCode": "PCR 2011 Rule 6(11)"
-    },
-    {
-      "id": "box_2_3",
-      "xPercent": 24,
-      "yPercent": 62,
-      "widthPercent": 52,
-      "heightPercent": 14,
-      "label": "MRP: ₹20.00 (INCL. TAXES)",
-      "boxColor": "green",
-      "detail": "Single uniform price with tax statement",
-      "ruleCode": "PCR 2011 Clause 6(1)(c)"
-    },
-    {
-      "id": "box_2_4",
-      "xPercent": 14,
-      "yPercent": 80,
-      "widthPercent": 72,
-      "heightPercent": 12,
-      "label": "FSSAI LIC. 10019022009871",
-      "boxColor": "green",
-      "detail": "Certified FSSAI registration & toll-free customer care",
-      "ruleCode": "PCR 2011 Clause 6(1)(h)"
-    }
+    {"id": "box_2_1", "xPercent": 35, "yPercent": 33, "widthPercent": 34, "heightPercent": 16, "label": "IMPORT DATE MISSING", "boxColor": "red", "detail": "Manufacturing date is present but a distinct month/year of import is not declared", "ruleCode": "PCR 2011 Rule 6(1)(d)"},
+    {"id": "box_2_2", "xPercent": 2, "yPercent": 22, "widthPercent": 38, "heightPercent": 22, "label": "IMPORTER DETAILS", "boxColor": "green", "detail": "Casio India Co. Pvt. Ltd. and registered address are declared", "ruleCode": "PCR 2011 Rule 6(1)(a)"},
+    {"id": "box_2_3", "xPercent": 40, "yPercent": 48, "widthPercent": 38, "heightPercent": 18, "label": "MRP: Rs. 1595.00", "boxColor": "green", "detail": "MRP is inclusive of all taxes", "ruleCode": "PCR 2011 Rule 6(1)(e)"},
+    {"id": "box_2_4", "xPercent": 80, "yPercent": 28, "widthPercent": 17, "heightPercent": 18, "label": "NET QTY: 1 PIECE", "boxColor": "green", "detail": "Net quantity is declared as 1 piece", "ruleCode": "PCR 2011 Rule 6(1)(c)"}
   ],
-  "violations": [],
+  "violations": [
+    {"id": "v2_1", "code": "MONTH/YEAR OF IMPORT", "severity": "major", "badge": "major", "desc": "The label declares Manufactured On: 08/2024 but does not separately state the month and year of import.", "rule": "PCR 2011 Rule 6(1)(d): Month and year of import must be declared distinctly from the manufacture date for imported goods."}
+  ],
   "compliant": [
-    {
-      "id": "c2_1",
-      "label": "Net Volume",
-      "status": "Compliant",
-      "desc": "1 Litre (1000 mL) exceeds minimum 4.0mm numeral height standard.",
-      "value": "1000 mL (1 L)"
-    },
-    {
-      "id": "c2_2",
-      "label": "Unit Sale Price (USP)",
-      "status": "Compliant",
-      "desc": "Calculated and displayed as ₹0.02 per mL in compliance with notification G.S.R. 779(E).",
-      "value": "₹0.02 per mL"
-    },
-    {
-      "id": "c2_3",
-      "label": "Maximum Retail Price (MRP)",
-      "status": "Compliant",
-      "desc": "Single countrywide price declared inclusive of all statutory duties and taxes.",
-      "value": "₹20.00 (Inclusive of all taxes)"
-    },
-    {
-      "id": "c2_4",
-      "label": "Month & Year of Packaging",
-      "status": "Compliant",
-      "desc": "Indelible thermal ink stamping of Batch B92 / PKD 02/2025.",
-      "value": "PKD: 02/2025"
-    },
-    {
-      "id": "c2_5",
-      "label": "FSSAI License & Logo",
-      "status": "Compliant",
-      "desc": "Lic. No. 10019022009871 verified against national food safety registry.",
-      "value": "Lic. 10019022009871"
-    },
-    {
-      "id": "c2_6",
-      "label": "Customer Grievance Redressal",
-      "status": "Compliant",
-      "desc": "Full corporate address, customer helpline (1800-200-8899) and care@purespring.in provided.",
-      "value": "1800-200-8899 • care@purespring.in"
-    }
+    {"id": "c2_1", "label": "Importer Details", "status": "Compliant", "desc": "Casio India Co. Pvt. Ltd. and its full registered address are declared.", "value": "Casio India Co. Pvt. Ltd., New Delhi"},
+    {"id": "c2_2", "label": "Consumer Care", "status": "Compliant", "desc": "Telephone numbers and an email contact are declared.", "value": "8929959829 / 18002022746 | casiocare@casio.co.in"},
+    {"id": "c2_3", "label": "Country of Origin", "status": "Compliant", "desc": "Thailand is declared as the country of origin.", "value": "Thailand"},
+    {"id": "c2_4", "label": "Commodity Name", "status": "Compliant", "desc": "The commodity is identified as a scientific calculator.", "value": "Scientific Calculator"},
+    {"id": "c2_5", "label": "Maximum Retail Price", "status": "Compliant", "desc": "MRP is declared inclusive of all taxes.", "value": "Rs. 1595.00 (Incl. of all taxes)"},
+    {"id": "c2_6", "label": "Net Quantity", "status": "Compliant", "desc": "The net quantity is declared as one piece.", "value": "1 Piece"}
   ],
   "changeLog": [
-    {
-      "id": "cl2_1",
-      "targetViolation": "All Statutory Declarations",
-      "actionRequired": "No corrective modifications required. Packaging conforms strictly to Legal Metrology (Packaged Commodities) Rules, 2011.",
-      "statutoryReference": "PCR 2011 Rules 6, 7, 8, 9 & 11"
-    }
+    {"id": "cl2_1", "targetViolation": "Month/Year of Import", "actionRequired": "Add a distinct Imported: MM/YYYY field separate from the manufacturing date.", "statutoryReference": "PCR 2011 Rule 6(1)(d), Rule 27 (imported packages)"}
   ]
 }
-

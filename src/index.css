@@ -51,24 +51,56 @@
   :root {
     --surface: #faf8ff;
     --surface-strong: #eaedff;
+    --surface-raised: #f2f3ff;
+    --surface-soft: #e2e7ff;
+    --surface-border: #eaedff;
     --card: #ffffff;
     --text: #131b2e;
     --muted: #434655;
     --border: #c3c6d7;
     --primary: #004ac6;
+    --primary-hover: #003ea8;
     --primary-soft: #e2e7ff;
+    --on-primary: #ffffff;
+    --field: #faf8ff;
+    --placeholder: #6b7280;
+    --success: #15803d;
+    --success-soft: #f0fdf4;
+    --success-border: #bbf7d0;
+    --danger: #b91c1c;
+    --danger-soft: #fef2f2;
+    --danger-border: #fecaca;
+    --warning: #d97706;
+    --warning-soft: #fffbeb;
+    --warning-border: #fde68a;
     --shadow: rgba(19, 27, 46, 0.08);
     --shadow-strong: rgba(19, 27, 46, 0.16);
   }
   [data-theme='dark'] {
     --surface: #0d1526;
     --surface-strong: #1b2942;
+    --surface-raised: #17243b;
+    --surface-soft: #203c72;
+    --surface-border: #334563;
     --card: #142038;
     --text: #eef2ff;
-    --muted: #aeb9d2;
+    --muted: #b8c4dc;
     --border: #334563;
-    --primary: #78a7ff;
+    --primary: #8cb2ff;
+    --primary-hover: #a9c6ff;
     --primary-soft: #203c72;
+    --on-primary: #07152e;
+    --field: #0f1c31;
+    --placeholder: #9eacc7;
+    --success: #86efac;
+    --success-soft: #123524;
+    --success-border: #2f7650;
+    --danger: #fca5a5;
+    --danger-soft: #3b2029;
+    --danger-border: #87404d;
+    --warning: #fbbf24;
+    --warning-soft: #3b2b13;
+    --warning-border: #8b641c;
     --shadow: rgba(0, 0, 0, 0.25);
     --shadow-strong: rgba(0, 0, 0, 0.42);
   }
@@ -88,12 +120,185 @@
   }
 }
 
-[data-theme='dark'] body { background-color: var(--surface); color: var(--text); }
-[data-theme='dark'] .bg-white { background-color: var(--card) !important; }
-[data-theme='dark'] .bg-slate-50, [data-theme='dark'] .bg-slate-100 { background-color: var(--surface-strong) !important; }
-[data-theme='dark'] .text-slate-900, [data-theme='dark'] .text-\[\#131b2e\] { color: var(--text) !important; }
-[data-theme='dark'] .text-slate-600, [data-theme='dark'] .text-slate-500, [data-theme='dark'] .text-\[\#434655\] { color: var(--muted) !important; }
-[data-theme='dark'] .border-slate-200, [data-theme='dark'] .border-slate-100 { border-color: var(--border) !important; }
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+[data-theme='dark'] body {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+/* Theme-aware surfaces. These selectors target existing utility tokens so
+   the light theme keeps its current design unchanged. */
+[data-theme='dark'] .bg-white,
+[data-theme='dark'] [class~="bg-white/90"],
+[data-theme='dark'] [class~="bg-white/40"] {
+  background-color: var(--card) !important;
+}
+[data-theme='dark'] [class~="bg-[#f8f9ff]"],
+[data-theme='dark'] [class~="bg-slate-50"],
+[data-theme='dark'] [class~="bg-slate-50/30"],
+[data-theme='dark'] [class~="bg-slate-50/50"],
+[data-theme='dark'] [class~="bg-slate-100"] {
+  background-color: var(--surface-strong) !important;
+}
+[data-theme='dark'] [class~="bg-slate-200"] {
+  background-color: var(--border) !important;
+}
+[data-theme='dark'] [class~="bg-[#f2f3ff]"],
+[data-theme='dark'] [class~="bg-[#f2f3ff]/50"],
+[data-theme='dark'] [class~="bg-[#f2f3ff]/60"] {
+  background-color: var(--surface-raised) !important;
+}
+[data-theme='dark'] [class~="bg-[#e2e7ff]"],
+[data-theme='dark'] [class~="bg-[#eaedff]"],
+[data-theme='dark'] [class~="bg-[#faf8ff]"],
+[data-theme='dark'] [class~="bg-blue-50"] {
+  background-color: var(--surface-soft) !important;
+}
+[data-theme='dark'] [class~="bg-[#e6eeff]"],
+[data-theme='dark'] [class~="bg-[#eff4ff]"],
+[data-theme='dark'] [class~="bg-[#d5e3fc]/70"] {
+  background-color: var(--surface-raised) !important;
+}
+[data-theme='dark'] [class~="bg-[#004ac6]"],
+[data-theme='dark'] [class~="bg-[var(--primary)]"] {
+  background-color: var(--primary) !important;
+}
+[data-theme='dark'] [class~="bg-[#004ac6]"][class~="text-white"],
+[data-theme='dark'] [class~="bg-[var(--primary)]"][class~="text-white"] {
+  color: var(--on-primary) !important;
+}
+[data-theme='dark'] [class~="bg-[#06245f]"] {
+  background-color: #071a3d !important;
+}
+[data-theme='dark'] [class~="bg-[#0F2A59]"] {
+  background-color: #1e3b70 !important;
+}
+
+/* Text and icon contrast. */
+[data-theme='dark'] .text-slate-900,
+[data-theme='dark'] .text-slate-800,
+[data-theme='dark'] [class~="text-[#131b2e]"] {
+  color: var(--text) !important;
+}
+[data-theme='dark'] .text-slate-700,
+[data-theme='dark'] .text-slate-600,
+[data-theme='dark'] .text-slate-500,
+[data-theme='dark'] [class~="text-[#434655]"] {
+  color: var(--muted) !important;
+}
+[data-theme='dark'] .text-slate-400 {
+  color: #91a1bf !important;
+}
+[data-theme='dark'] [class~="text-[#004ac6]"],
+[data-theme='dark'] [class~="text-[#007AFF]"],
+[data-theme='dark'] [class~="text-[var(--primary)]"] {
+  color: var(--primary) !important;
+}
+[data-theme='dark'] [class~="border-[#007AFF]"] {
+  border-color: var(--primary) !important;
+}
+[data-theme='dark'] [class~="text-[#00153b]"],
+[data-theme='dark'] [class~="text-[#0f2a59]"] {
+  color: var(--text) !important;
+}
+[data-theme='dark'] [class~="text-[#44474f]"] {
+  color: var(--muted) !important;
+}
+
+/* Borders and controls. */
+[data-theme='dark'] .border-slate-200,
+[data-theme='dark'] .border-slate-100,
+[data-theme='dark'] .border-slate-200\/80,
+[data-theme='dark'] [class~="border-[#c3c6d7]/30"],
+[data-theme='dark'] [class~="border-[#eaedff]"],
+[data-theme='dark'] [class~="border-[#c4c6d0]/40"],
+[data-theme='dark'] [class~="border-[#0f2a59]/15"],
+[data-theme='dark'] [class~="border-[#0f2a59]/20"],
+[data-theme='dark'] [class~="border-white/40"] {
+  border-color: var(--border) !important;
+}
+[data-theme='dark'] input,
+[data-theme='dark'] textarea,
+[data-theme='dark'] select {
+  color: var(--text);
+}
+[data-theme='dark'] input,
+[data-theme='dark'] textarea {
+  background-color: var(--field);
+}
+[data-theme='dark'] input::placeholder,
+[data-theme='dark'] textarea::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+[data-theme='dark'] select option {
+  background-color: var(--card);
+  color: var(--text);
+}
+
+/* Status colors remain distinct in dark mode without pale light cards. */
+[data-theme='dark'] [class~="bg-[#FEF2F2]"],
+[data-theme='dark'] [class~="bg-[#FEF2F2]/60"],
+[data-theme='dark'] [class~="bg-red-50"],
+[data-theme='dark'] [class~="bg-red-100"] {
+  background-color: var(--danger-soft) !important;
+}
+[data-theme='dark'] [class~="border-[#FECACA]"],
+[data-theme='dark'] [class~="border-red-200/80"] {
+  border-color: var(--danger-border) !important;
+}
+[data-theme='dark'] [class~="text-[#B91C1C]"],
+[data-theme='dark'] [class~="text-red-700"],
+[data-theme='dark'] [class~="text-red-800"] {
+  color: var(--danger) !important;
+}
+[data-theme='dark'] [class~="bg-[#F0FDF4]"],
+[data-theme='dark'] [class~="bg-[#F0FDF4]/50"],
+[data-theme='dark'] [class~="bg-emerald-50"],
+[data-theme='dark'] [class~="bg-emerald-100"] {
+  background-color: var(--success-soft) !important;
+}
+[data-theme='dark'] [class~="border-[#BBF7D0]"],
+[data-theme='dark'] [class~="border-emerald-200/60"],
+[data-theme='dark'] [class~="border-emerald-400"] {
+  border-color: var(--success-border) !important;
+}
+[data-theme='dark'] [class~="text-[#15803D]"],
+[data-theme='dark'] [class~="text-emerald-800"] {
+  color: var(--success) !important;
+}
+[data-theme='dark'] [class~="bg-[#15803D]"] {
+  background-color: #166534 !important;
+}
+[data-theme='dark'] [class~="bg-[#0f2a59]"] {
+  background-color: #1e3b70 !important;
+}
+[data-theme='dark'] [class~="bg-[#D97706]"],
+[data-theme='dark'] [class~="bg-amber-100"] {
+  background-color: #92400e !important;
+}
+[data-theme='dark'] [class~="text-[#D97706]"],
+[data-theme='dark'] [class~="text-amber-800"] {
+  color: var(--warning) !important;
+}
+
+/* Hover and active states use the active theme palette. */
+[data-theme='dark'] [class~="hover:bg-slate-50/50"]:hover,
+[data-theme='dark'] [class~="hover:bg-slate-50"]:hover,
+[data-theme='dark'] [class~="active:bg-slate-100"]:active {
+  background-color: var(--surface-strong) !important;
+}
+[data-theme='dark'] [class~="hover:bg-[#e2e7ff]"]:hover,
+[data-theme='dark'] [class~="hover:bg-[#eaedff]"]:hover,
+[data-theme='dark'] [class~="hover:bg-[#f2f3ff]"]:hover {
+  background-color: var(--surface-soft) !important;
+}
+[data-theme='dark'] [class~="hover:bg-[#003ea8]"]:hover {
+  background-color: var(--primary-hover) !important;
+}
 
 .custom-scrollbar::-webkit-scrollbar {
   display: none;

@@ -1,122 +1,36 @@
 {
   "id": "sample3",
-  "name": "NeemAyur Herbal Bath Soap (125g)",
-  "category": "Personal Care / Toilet Soap",
-  "netQuantity": "125 g",
-  "mrp": "₹55.00 (Incl. of all taxes)",
-  "mfgDate": "Smudged / 09-2024",
-  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuBaYIRicUV4TIUgTSrb_DmuyG8hhDkAChZiRXu1dLZixMVbf-zCUwwkq0gBieBfLVvAg8Espo0WDmMxbHXaJcuGyEtfCxtpAi4J0E3-LZ9RMxQqykAOn4TREg22tjkrNa6TE9fmUcbOXqCc9MWP6Mlc6eQ4KxjDquJsqIh-wtQ8rB49gzEl_HkDPN_MmQd9nvgtly9rDtLKG9GwsBOhZYT1PFK20JONxn3OwXVEgtqngp1kvj6UFM90OA",
-  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBaYIRicUV4TIUgTSrb_DmuyG8hhDkAChZiRXu1dLZixMVbf-zCUwwkq0gBieBfLVvAg8Espo0WDmMxbHXaJcuGyEtfCxtpAi4J0E3-LZ9RMxQqykAOn4TREg22tjkrNa6TE9fmUcbOXqCc9MWP6Mlc6eQ4KxjDquJsqIh-wtQ8rB49gzEl_HkDPN_MmQd9nvgtly9rDtLKG9GwsBOhZYT1PFK20JONxn3OwXVEgtqngp1kvj6UFM90OA",
-  "summary": "Flagged: Missing Unit Sale Price (USP) & Legibility Issue",
-  "badgeText": "USP & Date Defect",
+  "caseReference": "VL-SAMPLE4-1614",
+  "name": "Rajkamal's Namkeen Diet Navratan Mix (200g)",
+  "category": "Confectionery / Snack Food",
+  "netQuantity": "200 g",
+  "mrp": "Rs. 70.00 (Mumbai) / Rs. 75.00 (Outside Mumbai)",
+  "mfgDate": "Pkd: 05-09-16 | Batch: Sep 15",
+  "imagePath": "/assets/labels/product-3.jpeg",
+  "thumbnailUrl": "/assets/labels/product-3.jpeg",
+  "summary": "Flagged: Dual MRP and Ambiguous Packing Date",
+  "badgeText": "2 Violations",
   "defaultStatus": "VIOLATION",
   "boundingBoxes": [
-    {
-      "id": "box_3_1",
-      "xPercent": 18,
-      "yPercent": 42,
-      "widthPercent": 60,
-      "heightPercent": 14,
-      "label": "MISSING USP (RULE 6(11))",
-      "boxColor": "red",
-      "detail": "Packages > 50g must declare unit sale price per gram",
-      "ruleCode": "PCR 2011 Rule 6(11)"
-    },
-    {
-      "id": "box_3_2",
-      "xPercent": 52,
-      "yPercent": 66,
-      "widthPercent": 42,
-      "heightPercent": 16,
-      "label": "SMUDGED MFG DATE",
-      "boxColor": "amber",
-      "detail": "Embossed date fails Rule 9 minimum contrast standard",
-      "ruleCode": "PCR 2011 Clause 6(1)(d)"
-    },
-    {
-      "id": "box_3_3",
-      "xPercent": 12,
-      "yPercent": 64,
-      "widthPercent": 36,
-      "heightPercent": 14,
-      "label": "NET WEIGHT: 125g",
-      "boxColor": "green",
-      "detail": "Standard SI metric weight unit",
-      "ruleCode": "PCR 2011 Clause 6(1)(b)"
-    },
-    {
-      "id": "box_3_4",
-      "xPercent": 12,
-      "yPercent": 24,
-      "widthPercent": 38,
-      "heightPercent": 14,
-      "label": "MRP: ₹55.00",
-      "boxColor": "green",
-      "detail": "Tax inclusive declaration present",
-      "ruleCode": "PCR 2011 Clause 6(1)(c)"
-    }
+    {"id": "box_3_1", "xPercent": 50, "yPercent": 54, "widthPercent": 44, "heightPercent": 18, "label": "DUAL MRP: Rs. 70 / Rs. 75", "boxColor": "red", "detail": "Two different MRPs are declared for Mumbai and outside Mumbai", "ruleCode": "PCR 2011 Rule 6(1)(e)"},
+    {"id": "box_3_2", "xPercent": 48, "yPercent": 44, "widthPercent": 45, "heightPercent": 10, "label": "AMBIGUOUS DATE: 05-09-16", "boxColor": "amber", "detail": "Two-digit year format does not state the packing month and year unambiguously", "ruleCode": "PCR 2011 Rule 6(1)(d)"},
+    {"id": "box_3_3", "xPercent": 10, "yPercent": 45, "widthPercent": 34, "heightPercent": 12, "label": "NET QTY: 200 g", "boxColor": "green", "detail": "Net quantity is declared in standard SI units", "ruleCode": "PCR 2011 Rule 6(1)(c)"},
+    {"id": "box_3_4", "xPercent": 10, "yPercent": 72, "widthPercent": 42, "heightPercent": 14, "label": "FSSAI LICENSE", "boxColor": "green", "detail": "FSSAI license number is present on the label", "ruleCode": "FSSAI Licensing Regulations, 2011"}
   ],
   "violations": [
-    {
-      "id": "v3_1",
-      "code": "UNIT SALE PRICE (USP)",
-      "severity": "critical",
-      "badge": "critical",
-      "desc": "Soap carton lacks mandatory Unit Sale Price declaration (e.g. ₹0.44 per g) required for items over 50g.",
-      "rule": "PCR 2011 Rule 6(11): Mandatory declaration of unit sale price per gram/ml on packages where net quantity is not 1 integer kg/litre."
-    },
-    {
-      "id": "v3_2",
-      "code": "MONTH & YEAR OF MANUFACTURE",
-      "severity": "major",
-      "badge": "major",
-      "desc": "Embossed date on side flap is smudged and illegible under standard ambient inspection lighting.",
-      "rule": "PCR 2011 Clause 6(1)(d) read with Rule 9: Month and year of manufacture must be prominent, indelible and clearly legible."
-    }
+    {"id": "v3_1", "code": "DUAL MRP DECLARATION", "severity": "critical", "badge": "critical", "desc": "Two different MRPs are declared on the same label: MRP IN MUMBAI Rs. 70/- and MRP O/S MUMBAI Rs. 75/-.", "rule": "PCR 2011 Rule 6(1)(e) read with the area-specific MRP proviso: geographic applicability must be unambiguous."},
+    {"id": "v3_2", "code": "DATE FORMAT AMBIGUITY", "severity": "minor", "badge": "minor", "desc": "Packing date 05-09-16 uses a non-standard two-digit year format and is not unambiguous.", "rule": "PCR 2011 Rule 6(1)(d): Month and year of packing must be stated clearly."}
   ],
   "compliant": [
-    {
-      "id": "c3_1",
-      "label": "Net Weight",
-      "status": "Compliant",
-      "desc": "Net weight (125 g) declared on Principal Display Panel.",
-      "value": "125 g"
-    },
-    {
-      "id": "c3_2",
-      "label": "Maximum Retail Price (MRP)",
-      "status": "Compliant",
-      "desc": "MRP clearly marked with tax disclaimer.",
-      "value": "₹55.00 (Incl. of all taxes)"
-    },
-    {
-      "id": "c3_3",
-      "label": "Manufacturer & Packer Details",
-      "status": "Compliant",
-      "desc": "NeemAyur Naturals Ltd., Registered Industrial Complex.",
-      "value": "Registered Office & Factory listed"
-    },
-    {
-      "id": "c3_4",
-      "label": "Grade & TFM Specification",
-      "status": "Compliant",
-      "desc": "Grade 1 Toilet Soap with Total Fatty Matter (TFM) 76% declared.",
-      "value": "Grade 1 • 76% TFM"
-    }
+    {"id": "c3_1", "label": "Manufacturer Details", "status": "Compliant", "desc": "Rajkamal Namkeens Pvt. Ltd. and its full Mumbai address are declared.", "value": "Rajkamal Namkeens Pvt. Ltd., Mumbai"},
+    {"id": "c3_2", "label": "Consumer Care", "status": "Compliant", "desc": "Phone and email contact details are declared.", "value": "+91-22-2570406 | rajkamalnamkeens@gmail.com"},
+    {"id": "c3_3", "label": "Net Quantity", "status": "Compliant", "desc": "Net quantity is declared in grams.", "value": "200 g"},
+    {"id": "c3_4", "label": "Ingredients List", "status": "Compliant", "desc": "Ingredients are fully declared on the label.", "value": "Fully declared"},
+    {"id": "c3_5", "label": "FSSAI License", "status": "Compliant", "desc": "FSSAI license number is present.", "value": "11513013001945"},
+    {"id": "c3_6", "label": "Batch Number", "status": "Compliant", "desc": "Batch number is declared on the package.", "value": "Sep 15"}
   ],
   "changeLog": [
-    {
-      "id": "cl3_1",
-      "targetViolation": "Unit Sale Price (USP)",
-      "actionRequired": "Print 'USP: ₹0.44 per g' adjacent to the MRP block with equal prominence and font sizing.",
-      "statutoryReference": "PCR 2011 Rule 6(11)"
-    },
-    {
-      "id": "cl3_2",
-      "targetViolation": "Manufacturing Date Stamping",
-      "actionRequired": "Re-calibrate flap embossing dye pressure to ensure month & year (e.g. 'MFD 09/2024') is crisp and permanent.",
-      "statutoryReference": "PCR 2011 Clause 6(1)(d) & Rule 9"
-    }
+    {"id": "cl3_1", "targetViolation": "MRP Declaration", "actionRequired": "Declare one uniform MRP, or clearly demarcate the geographic boundary for each differential price zone on-pack.", "statutoryReference": "PCR 2011 Rule 6(1)(e)"},
+    {"id": "cl3_2", "targetViolation": "Packing Date Format", "actionRequired": "Reprint the packing date in an unambiguous DD/MM/YYYY format.", "statutoryReference": "PCR 2011 Rule 6(1)(d)"}
   ]
 }
-

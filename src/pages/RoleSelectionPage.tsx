@@ -15,9 +15,9 @@ export const RoleSelectionPage: React.FC<{ navigate: (path: string) => void }> =
       <section className="mx-auto max-w-2xl text-center mb-10">
         <img src="/assets/verilabel-logo.PNG" alt={t('brand')} className="mx-auto mb-5 h-24 w-24 rounded-3xl bg-[#06245f] object-contain shadow-lg" />
         <p className="text-sm font-semibold tracking-[0.25em] uppercase text-[var(--primary)]">{t('brand')}</p>
+        <p className="mt-2 text-sm italic text-[var(--muted)]">{t('motto')}</p>
         <h1 className="mt-3 font-display text-3xl sm:text-5xl font-bold tracking-tight">{t('roleTitle')}</h1>
         <p className="mt-4 text-[var(--muted)]">{t('roleSubtitle')}</p>
-        <p className="mt-2 text-sm italic text-[var(--muted)]">{t('motto')}</p>
       </section>
       <div className="grid gap-5 md:grid-cols-2">
         {roles.map(({ id, icon: Icon, title, desc, path }) => <button key={id} type="button" onClick={() => navigate(path)} className="group text-left rounded-3xl border border-[var(--border)] bg-[var(--card)]/80 p-7 shadow-[0_12px_35px_var(--shadow)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_var(--shadow-strong)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]">

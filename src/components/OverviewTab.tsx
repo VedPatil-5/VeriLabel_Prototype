@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  ScanText,
-  Users,
   Lightbulb,
   Camera,
   Cpu,
   Scale,
-  FileText,
-  Play,
-  Pause
+  FileText
 } from 'lucide-react';
 import { useI18n } from '../i18n';
+import { DashboardActions } from './DashboardActions';
 
 interface OverviewTabProps {
   onNavigateToScanner: () => void;
@@ -21,7 +18,6 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   onNavigateToScanner,
   onNavigateToTeam
 }) => {
-  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const { t } = useI18n();
 
   return (
@@ -37,59 +33,26 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
         </p>
 
         {/* CTAs Stacked Cleanly for Mobile — NO TEXT ARROWS */}
-        <div className="flex flex-col sm:flex-row w-full gap-3 pt-2 max-w-sm mx-auto">
-          <button
-            type="button"
-            onClick={onNavigateToScanner}
-            className="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#004ac6] text-white font-semibold text-sm shadow-md active:scale-[0.98] transition-transform hover:bg-[#003ea8] cursor-pointer"
-          >
-            <span>{t('getStarted')}</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={onNavigateToTeam}
-            className="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#eaedff] text-[#131b2e] font-semibold text-sm active:scale-[0.98] transition-transform hover:bg-[#e2e7ff] cursor-pointer"
-          >
-            <span>{t('meetTeam')}</span>
-            <Users className="w-4 h-4 text-[#004ac6]" />
-          </button>
-        </div>
+        <DashboardActions
+          onNavigateToScanner={onNavigateToScanner}
+          onNavigateToTeam={onNavigateToTeam}
+        />
       </section>
 
-      {/* Product Demo Walkthrough Video Placeholder */}
+      {/* Product Demo Walkthrough Video */}
       <section className="w-full max-w-3xl mx-auto">
-        <div className="relative w-full rounded-2xl overflow-hidden bg-[#e2e7ff] shadow-xs aspect-video flex flex-col items-center justify-center text-center p-4 group border border-[#c3c6d7]/30">
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center opacity-30"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKd1DlR1xLjCrjWrUhXIVt5mh91ynZJxapT3AMpaJqCisVNMn9zG0Fj5wGV92z4m2Oi2pX1RtQyXk5-LzQ94Slc91lmaavzgkRuwh_f8biozVwhOA9IrV_mAcbol3ISaHd_r1XsONZcQquYsiVNXWvAcgRFd-l8RHC0wcEAxW3BmEVkFe7e_a_8Xf2JmXzGkjLeVpdu9pLcB44gqBg9aowPivyoAmHVrG2R_xCmCARvqy2gHtFRhUYkA')"
-            }}
+        <div className="relative w-full overflow-hidden rounded-2xl border border-[#c3c6d7]/30 bg-slate-900 shadow-xs aspect-video">
+          <video
+            className="h-full w-full object-cover"
+            src="/assets/video_VeriLabel.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
+            preload="metadata"
+            aria-label={t('demo')}
           />
-
-          <div className="relative z-10 flex flex-col items-center space-y-2">
-            <button
-              onClick={() => setIsPlayingVideo(!isPlayingVideo)}
-              aria-label={t('demo')}
-              className="w-14 h-14 rounded-full bg-[#004ac6] text-white flex items-center justify-center shadow-lg active:scale-95 transition-transform hover:bg-[#003ea8] cursor-pointer"
-              type="button"
-            >
-              {isPlayingVideo ? (
-                <Pause className="w-7 h-7" />
-              ) : (
-                <Play className="w-7 h-7 ml-0.5" />
-              )}
-            </button>
-            <span className="font-display text-base text-[#131b2e] font-bold pt-1">
-              {t('demo')}
-            </span>
-            <span className="text-xs text-[#434655] max-w-xs">
-              {isPlayingVideo
-                ? t('demoPlaying')
-                : t('demoIdle')}
-            </span>
-          </div>
         </div>
       </section>
 

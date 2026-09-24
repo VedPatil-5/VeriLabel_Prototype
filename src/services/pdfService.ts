@@ -117,7 +117,7 @@ export async function generateInspectionPdf(sample: SampleDataset, options: { la
   };
 
   // Case ID and Timestamp
-  const caseId = `VL-${sample.id.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`;
+  const caseId = sample.caseReference || `VL-${sample.id.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`;
   const locale = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN';
   const timestamp = new Date().toLocaleString(locale, {
     dateStyle: 'medium',
@@ -473,7 +473,7 @@ export async function generateInspectionPdf(sample: SampleDataset, options: { la
 
   // Return generated Blob and trigger download
   const blob = doc.output('blob');
-  doc.save(`VeriLabel_Inspection_${sample.id}.pdf`);
+  doc.save(`VeriLabel_Inspection_${caseId}.pdf`);
   return blob;
 }
 

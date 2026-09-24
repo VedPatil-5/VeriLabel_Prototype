@@ -1,150 +1,36 @@
 {
   "id": "sample1",
-  "name": "ChocoNut Energy Bar (45g)",
-  "category": "Confectionery / Snack Bar",
-  "netQuantity": "45 g",
-  "mrp": "₹40.00 (Incl. of all taxes)",
-  "mfgDate": "14/09/2024",
-  "imagePath": "https://lh3.googleusercontent.com/aida-public/AB6AXuCjjhHvc5A9YS3wEJCu9iFAci2ozysELYvWhARTIhv_lNKS5wVQkX9Ga_DQJwdscnYWcueVKLbwi-2KqvflaSbHdBJDfuEo0ICsf_h4Y1nKlzU5S8sfwgMJHvP1DfilswXj3ES0MKMIFC68xySZUJqOH6ZHduPI0O6f6fgKook1eGd4YIPpTp3gnm8R0IoUu6ZSLRxs1ITTNJN0hDBWvfyWhMzeIfWKTS_CoAXtIFALi823PLqoQvuO2g",
-  "thumbnailUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCjjhHvc5A9YS3wEJCu9iFAci2ozysELYvWhARTIhv_lNKS5wVQkX9Ga_DQJwdscnYWcueVKLbwi-2KqvflaSbHdBJDfuEo0ICsf_h4Y1nKlzU5S8sfwgMJHvP1DfilswXj3ES0MKMIFC68xySZUJqOH6ZHduPI0O6f6fgKook1eGd4YIPpTp3gnm8R0IoUu6ZSLRxs1ITTNJN0hDBWvfyWhMzeIfWKTS_CoAXtIFALi823PLqoQvuO2g",
-  "summary": "Flagged: Missing FSSAI Logo, Veg Dot & Incomplete Address",
-  "badgeText": "3 Critical Defects",
+  "caseReference": "VL-SAMPLE2-0621",
+  "name": "Unidentified Tube Product (Partial Label View)",
+  "category": "Unspecified / Tube-packaged commodity",
+  "netQuantity": "Not visible in captured frame",
+  "mrp": "Rs. 63.00 (USP Rs. 0.63/g)",
+  "mfgDate": "Pkd: 20/JUL/26 | Exp: 20/JUL/27",
+  "imagePath": "/assets/labels/product-1.jpeg",
+  "thumbnailUrl": "/assets/labels/product-1.jpeg",
+  "summary": "Flagged: Insufficient Label Coverage - 3 Critical Defects",
+  "badgeText": "3 Critical Violations",
   "defaultStatus": "VIOLATION",
   "boundingBoxes": [
-    {
-      "id": "box_1_1",
-      "xPercent": 68,
-      "yPercent": 14,
-      "widthPercent": 24,
-      "heightPercent": 18,
-      "label": "FSSAI LOGO MISSING",
-      "boxColor": "red",
-      "detail": "FSSAI logo & 14-digit license number absent",
-      "ruleCode": "PCR 2011 Clause 6(1)"
-    },
-    {
-      "id": "box_1_2",
-      "xPercent": 8,
-      "yPercent": 70,
-      "widthPercent": 18,
-      "heightPercent": 18,
-      "label": "VEG SYMBOL ABSENT",
-      "boxColor": "red",
-      "detail": "Green filled dot in square border missing",
-      "ruleCode": "PCR 2011 Clause 6(1)"
-    },
-    {
-      "id": "box_1_3",
-      "xPercent": 32,
-      "yPercent": 52,
-      "widthPercent": 34,
-      "heightPercent": 14,
-      "label": "NET QUANTITY: 45g",
-      "boxColor": "green",
-      "detail": "45 g in standard SI units",
-      "ruleCode": "PCR 2011 Clause 6(1)(b)"
-    },
-    {
-      "id": "box_1_4",
-      "xPercent": 34,
-      "yPercent": 72,
-      "widthPercent": 38,
-      "heightPercent": 16,
-      "label": "MRP: ₹40.00",
-      "boxColor": "green",
-      "detail": "Inclusive of all taxes declared",
-      "ruleCode": "PCR 2011 Clause 6(1)(c)"
-    }
+    {"id": "box_1_1", "xPercent": 5, "yPercent": 35, "widthPercent": 45, "heightPercent": 20, "label": "PRODUCT NAME MISSING", "boxColor": "red", "detail": "Common or generic commodity name is not visible on the captured panel", "ruleCode": "PCR 2011 Rule 6(1)(b)"},
+    {"id": "box_1_2", "xPercent": 52, "yPercent": 35, "widthPercent": 43, "heightPercent": 20, "label": "MANUFACTURER DETAILS MISSING", "boxColor": "red", "detail": "Manufacturer, packer or importer name and address are absent from the captured panel", "ruleCode": "PCR 2011 Rule 6(1)(a)"},
+    {"id": "box_1_3", "xPercent": 5, "yPercent": 58, "widthPercent": 43, "heightPercent": 20, "label": "NET QUANTITY MISSING", "boxColor": "red", "detail": "Declared net quantity is not visible on the captured panel", "ruleCode": "PCR 2011 Rule 6(1)(c)"},
+    {"id": "box_1_4", "xPercent": 52, "yPercent": 58, "widthPercent": 42, "heightPercent": 18, "label": "MRP: Rs. 63.00", "boxColor": "green", "detail": "MRP and unit sale price are declared", "ruleCode": "PCR 2011 Rule 6(1)(e)"},
+    {"id": "box_1_5", "xPercent": 8, "yPercent": 78, "widthPercent": 84, "heightPercent": 16, "label": "BATCH / PKD / EXP LEGIBLE", "boxColor": "green", "detail": "Batch code, packing date and expiry date are legible", "ruleCode": "PCR 2011 Rule 6(1)(d)"}
   ],
   "violations": [
-    {
-      "id": "v1_1",
-      "code": "FSSAI LOGO",
-      "severity": "critical",
-      "badge": "critical",
-      "desc": "FSSAI logo and 14-digit license number are missing from the Principal Display Panel.",
-      "rule": "PCR 2011 Clause 6(1): Mandatory FSSAI licensing and logo display on packaged foodstuffs."
-    },
-    {
-      "id": "v1_2",
-      "code": "VEG / NON-VEG SYMBOL",
-      "severity": "critical",
-      "badge": "critical",
-      "desc": "Dietary classification symbol (green filled circle in square frame) is absent.",
-      "rule": "PCR 2011 Clause 6(1): Mandatory dietary declaration symbol on pre-packaged foods."
-    },
-    {
-      "id": "v1_3",
-      "code": "MANUFACTURER DETAILS",
-      "severity": "critical",
-      "badge": "critical",
-      "desc": "Manufacturer premise address lacks postal PIN code and registered office location.",
-      "rule": "PCR 2011 Clause 6(1)(f): Complete name and address of manufacturer or packer."
-    },
-    {
-      "id": "v1_4",
-      "code": "BATCH NUMBER",
-      "severity": "major",
-      "badge": "major",
-      "desc": "Batch identification code is partially obscured by foil wrapper seam.",
-      "rule": "PCR 2011 Clause 6(1)(e): Distinct batch, lot or code number."
-    }
+    {"id": "v1_1", "code": "PRODUCT NAME", "severity": "critical", "badge": "critical", "desc": "Common or generic commodity name is not visible on the captured panel.", "rule": "PCR 2011 Rule 6(1)(b): Common or generic name of the commodity."},
+    {"id": "v1_2", "code": "MANUFACTURER DETAILS", "severity": "critical", "badge": "critical", "desc": "Manufacturer, packer or importer name and address are absent from the captured panel.", "rule": "PCR 2011 Rule 6(1)(a): Name and address of manufacturer, packer or importer."},
+    {"id": "v1_3", "code": "NET QUANTITY", "severity": "critical", "badge": "critical", "desc": "Declared net quantity is not visible on the captured panel.", "rule": "PCR 2011 Rule 6(1)(c): Net quantity in standard SI units."}
   ],
   "compliant": [
-    {
-      "id": "c1_1",
-      "label": "Net Quantity",
-      "status": "Compliant",
-      "desc": "Net weight declared in standard metric units with compliant letter height.",
-      "value": "45 g (Compliant)"
-    },
-    {
-      "id": "c1_2",
-      "label": "Maximum Retail Price",
-      "status": "Compliant",
-      "desc": "MRP clearly declared in Indian Rupees inclusive of all taxes.",
-      "value": "₹40.00 (Incl. of all taxes)"
-    },
-    {
-      "id": "c1_3",
-      "label": "Date of Packing / Expiry",
-      "status": "Compliant",
-      "desc": "Best Before period and packing date distinctly legible.",
-      "value": "BB: 14/09/2024"
-    },
-    {
-      "id": "c1_4",
-      "label": "Nutritional Information",
-      "status": "Compliant",
-      "desc": "Full per-serving caloric and macronutrient breakdown provided.",
-      "value": "Energy: 210 kcal / 45g"
-    }
+    {"id": "c1_1", "label": "Maximum Retail Price", "status": "Compliant", "desc": "MRP and unit sale price are declared on the captured panel.", "value": "Rs. 63.00 | USP Rs. 0.63/g"},
+    {"id": "c1_2", "label": "Batch Code, Pkd & Exp Date", "status": "Compliant", "desc": "Batch code, packing date and expiry date are legible.", "value": "Pkd: 20/JUL/26 | Exp: 20/JUL/27"}
   ],
   "changeLog": [
-    {
-      "id": "cl1_1",
-      "targetViolation": "FSSAI Logo & License",
-      "actionRequired": "Print official FSSAI emblem with 14-digit license number (Lic. No. 1XXXXXXXXXXXXX) on back panel.",
-      "statutoryReference": "PCR 2011 Clause 6(1) & FSSAI Packaging Reg. 2018"
-    },
-    {
-      "id": "cl1_2",
-      "targetViolation": "Dietary Classification Symbol",
-      "actionRequired": "Incorporate standard green filled circle of minimum 3mm diameter inside a green square outline.",
-      "statutoryReference": "FSSAI (Labelling and Display) Reg. 2020 Clause 2.2.2"
-    },
-    {
-      "id": "cl1_3",
-      "targetViolation": "Manufacturer Address",
-      "actionRequired": "Include full registered office address, factory unit number, and 6-digit postal PIN code.",
-      "statutoryReference": "PCR 2011 Clause 6(1)(f)"
-    },
-    {
-      "id": "cl1_4",
-      "targetViolation": "Batch / Lot Code",
-      "actionRequired": "Reposition thermal batch print away from package sealing crimp to ensure 100% legibility.",
-      "statutoryReference": "PCR 2011 Clause 6(1)(e) & Rule 9"
-    }
+    {"id": "cl1_1", "targetViolation": "Product Name", "actionRequired": "Capture the full panel or add the common or generic commodity name to the label.", "statutoryReference": "PCR 2011 Rule 6(1)(b)"},
+    {"id": "cl1_2", "targetViolation": "Manufacturer Details", "actionRequired": "Capture the full panel showing the manufacturer, packer or importer name and address.", "statutoryReference": "PCR 2011 Rule 6(1)(a)"},
+    {"id": "cl1_3", "targetViolation": "Net Quantity", "actionRequired": "Capture the front or back panel where the net quantity is declared in standard SI units.", "statutoryReference": "PCR 2011 Rule 6(1)(c)"},
+    {"id": "cl1_4", "targetViolation": "Auditor Note", "actionRequired": "This verdict reflects only the captured region; hold the product for a full-panel re-scan.", "statutoryReference": "Insufficient label coverage"}
   ]
 }
-
